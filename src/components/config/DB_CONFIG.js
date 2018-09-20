@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import DB_KEY from "./DB_KEY"
+import { DB_KEY } from "../config/DB_KEY"
 
 export const DB_CONFIG = {
   apiKey: DB_KEY,

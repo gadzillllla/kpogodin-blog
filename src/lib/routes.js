@@ -1,5 +1,5 @@
 export default {
-    rootPath: "/",
-    videoPath: "/video",
-    aboutPath: "/about"
-}
+  rootPath: '/',
+  videoPath: '/video',
+  aboutPath: '/about',
+};

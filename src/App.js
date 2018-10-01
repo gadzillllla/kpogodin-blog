@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import store from './store'
-import Header from "./components/Header"
-import MainContent from "./components/MainContent";
-import About from "./components/About";
-import Routes from "./lib/routes"
+import store from './store';
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import About from './components/About';
+import Routes from './lib/routes';
 import './App.scss';
+
+/* eslint-disable */
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
-      <div className='App'>
+      <div className="App">
         <Header />
         <div className="content">
           <Route exact path={Routes.rootPath} component={MainContent} />
@@ -20,6 +22,6 @@ const App = () => (
       </div>
     </BrowserRouter>
   </Provider>
-)
+);
 
 export default App;

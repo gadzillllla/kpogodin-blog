@@ -1,4 +1,13 @@
+@import '../styles/vars.scss';
+
 .root {
-    background-color: grey;
-    margin: 10px;
+  background-color: $post-background;
+  border-left: 5px solid $border-post;
+  color: $post-text-color;
+  margin: 10px;
+  padding: 10px;
+
+  &:hover {
+    background-color: $post-background-hover;
+  }
 }

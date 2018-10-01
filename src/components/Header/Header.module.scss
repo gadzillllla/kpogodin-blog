@@ -1,4 +1,32 @@
-.root {
-    background-color: grey;
-    margin: 10px;
+@import '../shared/styles/vars.scss';
+
+.container {
+  background-color: $main-background;
+  height: 100vh;
+  position: fixed;
+  width: 250px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.link {
+  background: white;
+  background-color: $main-background;
+  color: white;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.logo {
+  height: 55px;
+  width: 261px;
 }

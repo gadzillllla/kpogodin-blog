@@ -1,4 +1,17 @@
+@import './components/shared/styles/vars.scss';
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
+  background-color: $body-background;
+  font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: $main-background;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1024px;
+  min-height: 100vh;
 }

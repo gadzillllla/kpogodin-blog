@@ -1,17 +1,22 @@
-@import './components/shared/styles/vars.scss';
+@import './components/shared/styles/vars.css';
 
 body {
-  background-color: $body-background;
+  background-color: var(--body-background);
   font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   margin: 0;
+  overflow: scroll;
   padding: 0;
 }
 
 .App {
-  background-color: $main-background;
+  background-color: var(--main-background);
   display: flex;
   margin: 0 auto;
   max-width: 1024px;
   min-height: 100vh;
+}
+
+.content {
+  margin-left: 300px;
 }

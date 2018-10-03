@@ -6,7 +6,8 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import About from './components/About';
 import Routes from './lib/routes';
-import './App.scss';
+import Video from './components/Video';
+import './App.css';
 
 /* eslint-disable */
 
@@ -18,6 +19,7 @@ const App = () => (
         <div className="content">
           <Route exact path={Routes.rootPath} component={MainContent} />
           <Route path={Routes.aboutPath} component={About} />
+          <Route path={Routes.videoPath} component={Video} />
         </div>
       </div>
     </BrowserRouter>

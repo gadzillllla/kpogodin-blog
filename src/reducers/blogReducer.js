@@ -1,10 +1,9 @@
-import * as actionTypes from '../constants/blogConstants';
 import { lensProp, set } from 'ramda';
+import * as actionTypes from '../constants/blogConstants';
 
 const initialState = {
   loaded: false,
 };
-
 
 const loadedLens = lensProp('loaded');
 

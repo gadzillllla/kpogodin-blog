@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { database_posts } from 'components/config/DB_CONFIG';
+import { databasePosts } from 'components/config/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
+import PropTypes from 'prop-types';
 import { blogLoaded, blogLoading } from '../../actions/blogActions';
-import styles from './MainContent.module.scss';
 
 class MainContent extends Component {
   state = {
@@ -12,8 +12,10 @@ class MainContent extends Component {
   };
 
   componentDidMount() {
-    const previousPosts = this.state.posts;
-    database_posts.on('child_added', snap => {
+    const { posts } = this.state;
+    const { blogLoaded } = this.props;
+    const previousPosts = posts;
+    databasePosts.on('child_added', snap => {
       previousPosts.push({
         id: snap.key,
         txt: snap.val().txt,
@@ -24,11 +26,11 @@ class MainContent extends Component {
         {
           posts: previousPosts,
         },
-        this.props.blogLoaded,
+        blogLoaded,
       );
     });
 
-    database_posts.on('child_removed', snap => {
+    databasePosts.on('child_removed', snap => {
       previousPosts.forEach((elem, index) => {
         if (elem.id === snap.key) {
           previousPosts.splice(index, 1);
@@ -42,12 +44,14 @@ class MainContent extends Component {
   }
 
   render() {
-    if (!this.props.loaded) {
+    const { posts } = this.state;
+    const { loaded } = this.props;
+    if (!loaded) {
       return <Loader />;
     }
     return (
       <div>
-        {this.state.posts.map(elem => (
+        {posts.map(elem => (
           <Post date={elem.time} author={elem.author} text={elem.txt} key={elem.id} postId={elem.id} />
         ))}
       </div>
@@ -58,6 +62,11 @@ class MainContent extends Component {
 const mapStateToProps = state => ({
   loaded: state.blogReducer.loaded,
 });
+
+MainContent.propTypes = {
+  loaded: PropTypes.bool.isRequired,
+  blogLoaded: PropTypes.func.isRequired,
+};
 
 export default connect(
   mapStateToProps,

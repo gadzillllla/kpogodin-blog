@@ -1,23 +1,22 @@
-@import '../shared/styles/vars.scss';
+@import '../shared/styles/vars.css';
 
 .container {
-  background-color: $main-background;
+  background-color: var(--main-background);
   height: 100vh;
   position: fixed;
-  width: 250px;
+  width: 300px;
 }
 
 .navigation {
   display: flex;
   flex-direction: column;
-  height: 100%;
   margin: 0 auto;
-  width: 200px;
+  width: 300px;
 }
 
 .link {
   background: white;
-  background-color: $main-background;
+  background-color: var(--main-background);
   color: white;
   height: 100%;
   text-align: center;
@@ -27,6 +26,7 @@
 }
 
 .logo {
-  height: 55px;
-  width: 261px;
+  background: svg-load('./logo.svg');
+  margin: 50px;
+  width: 80%;
 }

@@ -8,7 +8,6 @@
 
 # production
 /build
-
 # misc
 .DS_Store
 .env.local
@@ -19,4 +18,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-components/config/DB_KEY.js
+src/DBconfig/DB_KEY.js

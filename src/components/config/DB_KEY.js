@@ -1,1 +1,0 @@
-export const DB_KEY = "AIzaSyBjOlV1hNKePqMUfxO22j9Yv1ke3WDcprg";

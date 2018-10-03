@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { databasePosts } from 'components/config/DB_CONFIG';
+import { databasePosts } from 'DBconfig/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';

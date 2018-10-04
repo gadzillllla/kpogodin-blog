@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginForm from 'components/LoginForm';
 import Routes from 'lib/routes';
-import logo from 'components/shared/logo.svg';
 import styles from './Header.module.css';
+import LogoSvg from 'components/shared/SVG/logo';
 
 const NAVIGATION_BAR = [
   {
@@ -21,7 +22,7 @@ const NAVIGATION_BAR = [
 
 const Header = () => (
   <header className={styles.container}>
-    <img src={logo} className={styles.logo} alt="logo" />
+    <LogoSvg />
     <nav className={styles.navigation}>
       {NAVIGATION_BAR.map(elem => (
         <Link key={elem.link} className={styles.link} to={elem.link}>
@@ -29,6 +30,7 @@ const Header = () => (
         </Link>
       ))}
     </nav>
+    <LoginForm />
   </header>
 );
 

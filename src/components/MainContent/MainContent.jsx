@@ -4,7 +4,7 @@ import { databasePosts } from 'DBconfig/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
-import { blogLoaded, blogLoading } from '../../actions/blogActions';
+import { blogLoaded, blogLoading } from 'actions/blogActions';
 
 class MainContent extends Component {
   state = {

@@ -1,0 +1,26 @@
+@import '../styles/vars.css';
+
+.small {
+  fill: var(--svg-color);
+  height: 20px;
+  margin-right: 5px;
+  width: 20px;
+}
+
+.logo {
+  background: var(--logo-background);
+  margin: 50px;
+  width: 80%;
+}
+
+.logo-shape {
+  fill: var(--logo-shape);
+  fill-rule: evenodd;
+  stroke: none;
+}
+
+.logo-text {
+  fill: var(--logo-text);
+  fill-rule: nonzero;
+  stroke: none;
+}

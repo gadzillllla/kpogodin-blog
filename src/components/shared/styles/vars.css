@@ -1,7 +1,12 @@
 :root {
+  --orange: #eb8808;
   --body-background: black;
   --main-background: #464544;
-  --border-post: #eb8808;
+  --border-post: var(--orange);
+  --logo-shape: var(--orange);
+  --logo-text: black;
+  --logo-background: white;
+  --svg-color: var(--orange);
   --post-background: #3a3a39;
   --post-background-hover: #333332;
   --post-text-color: #e4e2e3;

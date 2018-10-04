@@ -10,6 +10,9 @@ export const DB_CONFIG = {
   messagingSenderId: '136260481730',
 };
 
+export const facebookProvider = new firebase.auth.FacebookAuthProvider();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+
 export const appDB = firebase.initializeApp(DB_CONFIG);
 export const databasePosts = appDB
   .database()

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
-import { userLogin, userLogout } from 'actions/userActions';
-import PropTypes from 'prop-types';
 import styles from './addCommentForm.module.css';
 
 class AddCommentForm extends Component {
@@ -20,6 +18,7 @@ class AddCommentForm extends Component {
       .set({
         txt: values.txt,
         author: this.props.username,
+        authorUid: this.props.uid,
       });
   };
 
@@ -30,7 +29,7 @@ class AddCommentForm extends Component {
         render={({ handleSubmit }) => (
           <form className={styles.root} onSubmit={handleSubmit}>
             <div className={styles.row}>
-              <Field name="txt" component="textarea" type="text" placeholder="dfgdfgdf" />
+              <Field name="txt" component="textarea" type="text" />
             </div>
             <button type="submit"> отправить</button>
           </form>
@@ -42,6 +41,7 @@ class AddCommentForm extends Component {
 
 const mapStateToProps = state => ({
   username: state.userReducer.username,
+  uid: state.userReducer.userUid,
 });
 
 // LoginForm.propTypes = {

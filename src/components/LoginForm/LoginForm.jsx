@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
 import { appDB, facebookProvider, googleProvider } from 'DBconfig/DB_CONFIG';
-import { userLogin, userLogout } from 'actions/userActions';
+import { userLogin, userLogout, adminMode } from 'actions/userActions';
 import PropTypes from 'prop-types';
 import styles from './LoginForm.module.css';
 import SvgKey from 'components/shared/SVG/key';
 import SvgLogin from 'components/shared/SVG/login';
 import SignUpForm from 'components/SignUpForm';
+import adminToken from 'DBconfig/DB_ADMIN_TOKEN';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -21,14 +22,21 @@ class LoginForm extends Component {
   }
 
   authListener = () => {
-    const { userLogin, userLogout } = this.props;
+    const { userLogin, userLogout, adminMode } = this.props;
     appDB.auth().onAuthStateChanged(user => {
       if (user) {
         console.log('user', user);
-        console.log('data', user.providerData[0].providerId);
         const shortEmail = String(user.email).split('@')[0];
-        user.displayName ? userLogin(user.displayName) : userLogin(shortEmail);
+        user.displayName
+          ? userLogin(user)
+          : userLogin({
+              displayName: shortEmail,
+              uid: user.uid,
+            });
         localStorage.setItem('user', user.uid);
+        if (user.uid === adminToken) {
+          adminMode();
+        }
       } else {
         userLogout();
         localStorage.removeItem('user');
@@ -37,12 +45,7 @@ class LoginForm extends Component {
   };
 
   facebookLogin = () => {
-    appDB
-      .auth()
-      .signInWithPopup(facebookProvider)
-      .then(result => {
-        console.log(result);
-      });
+    appDB.auth().signInWithPopup(facebookProvider);
   };
 
   googleLogin = () => {
@@ -122,5 +125,5 @@ LoginForm.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { userLogin, userLogout },
+  { userLogin, userLogout, adminMode },
 )(LoginForm);

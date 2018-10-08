@@ -6,3 +6,6 @@ export function userLogin(payload) {
 export function userLogout() {
   return { type: actionTypes.LOGOUT };
 }
+export function adminMode() {
+  return { type: actionTypes.ADMIN_MODE_ON };
+}

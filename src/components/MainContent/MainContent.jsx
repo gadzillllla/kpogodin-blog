@@ -21,12 +21,6 @@ class MainContent extends Component {
         id: snap.key,
         txt: snap.val().txt,
         title: snap.val().title,
-        // comments: Object.keys(snap.val().comments).map(elem => {
-        //   return {
-        //     txt: snap.val().comments[elem].txt,
-        //     author: snap.val().comments[elem].author,
-        //   };
-        // }),
       });
       this.setState(
         {

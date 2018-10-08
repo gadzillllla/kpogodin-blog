@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { databasePosts } from 'DBconfig/DB_CONFIG';
+import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
+import AddPostForm from 'components/AddPostForm';
 
 class MainContent extends Component {
   state = {
@@ -19,8 +20,13 @@ class MainContent extends Component {
       previousPosts.push({
         id: snap.key,
         txt: snap.val().txt,
-        author: snap.val().author,
-        time: snap.val().time,
+        title: snap.val().title,
+        // comments: Object.keys(snap.val().comments).map(elem => {
+        //   return {
+        //     txt: snap.val().comments[elem].txt,
+        //     author: snap.val().comments[elem].author,
+        //   };
+        // }),
       });
       this.setState(
         {
@@ -28,6 +34,7 @@ class MainContent extends Component {
         },
         blogLoaded,
       );
+      console.log('posts', posts);
     });
 
     databasePosts.on('child_removed', snap => {
@@ -51,8 +58,9 @@ class MainContent extends Component {
     }
     return (
       <div>
+        <AddPostForm />
         {posts.map(elem => (
-          <Post date={elem.time} author={elem.author} text={elem.txt} key={elem.id} postId={elem.id} />
+          <Post title={elem.title} text={elem.txt} key={elem.id} postId={elem.id} comments={elem.comments} />
         ))}
       </div>
     );

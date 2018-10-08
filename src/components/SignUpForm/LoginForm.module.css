@@ -1,0 +1,15 @@
+.root {
+  margin: 100px 0 0 50px;
+}
+
+.row {
+  display: flex;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.icon {
+  fill: red;
+  margin-right: 10px;
+  width: 20px;
+}

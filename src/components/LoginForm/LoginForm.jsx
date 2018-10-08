@@ -7,8 +7,15 @@ import PropTypes from 'prop-types';
 import styles from './LoginForm.module.css';
 import SvgKey from 'components/shared/SVG/key';
 import SvgLogin from 'components/shared/SVG/login';
+import SignUpForm from 'components/SignUpForm';
 
 class LoginForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      form: 'login',
+    };
+  }
   componentDidMount() {
     this.authListener();
   }
@@ -29,7 +36,7 @@ class LoginForm extends Component {
     });
   };
 
-  facebockLogin = () => {
+  facebookLogin = () => {
     appDB
       .auth()
       .signInWithPopup(facebookProvider)
@@ -46,8 +53,20 @@ class LoginForm extends Component {
 
   logout = () => appDB.auth().signOut();
 
+  toSignUp = () =>
+    this.setState({
+      form: 'signUp',
+    });
+
+  toLogin = () => {
+    this.setState({
+      form: 'login',
+    });
+  };
+
   render() {
     const { username } = this.props;
+    const { form } = this.state;
     if (username) {
       return (
         <div>
@@ -55,6 +74,10 @@ class LoginForm extends Component {
           <button type="button" onClick={this.logout} />
         </div>
       );
+    }
+
+    if (form === 'signUp') {
+      return <SignUpForm back={this.toLogin} />;
     }
 
     return (
@@ -71,10 +94,10 @@ class LoginForm extends Component {
               <Field name="password" component="input" type="password" placeholder="Пароль" />
             </div>
             <button type="submit"> вход</button>
-            <button type="button" onClick={this.logout}>
-              выход
+            <button type="button" onClick={this.toSignUp}>
+              Зарегистрироваться
             </button>
-            <button type="button" onClick={this.facebockLogin}>
+            <button type="button" onClick={this.facebookLogin}>
               fb
             </button>
             <button type="button" onClick={this.googleLogin}>

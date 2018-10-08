@@ -19,12 +19,5 @@ export const databasePosts = appDB
   .ref()
   .child('posts');
 
-export const databaseLove = appDB
-  .database()
-  .ref()
-  .child('imLove');
-
-export const databaseNotlove = appDB
-  .database()
-  .ref()
-  .child('notLove');
+// const id = '-LFJx46jPOaLVDGaC';
+// export const currentPost = databasePosts.child(id);

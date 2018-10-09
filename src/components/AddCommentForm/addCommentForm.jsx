@@ -11,27 +11,43 @@ class AddCommentForm extends Component {
   }
 
   addComment = values => {
-    databasePosts
-      .child(this.props.id)
-      .child('comments')
-      .push()
-      .set({
-        txt: values.txt,
-        author: this.props.username,
-        authorUid: this.props.uid,
-      });
+    let date = new Date().getTime();
+    if (values.txt.length > 3) {
+      databasePosts
+        .child(this.props.id)
+        .child('comments')
+        .push()
+        .set({
+          txt: values.txt,
+          author: this.props.username,
+          authorUid: this.props.uid,
+          time: date,
+        });
+      values.txt = '';
+    }
+  };
+
+  validate = values => {
+    const errors = {};
+    if (!values.txt || values.txt.length < 3) {
+      errors.txt = 'Нужно больше символов';
+    }
+    return errors;
   };
 
   render() {
     return (
       <Form
         onSubmit={this.addComment}
-        render={({ handleSubmit }) => (
+        validate={this.validate}
+        render={({ handleSubmit, invalid }) => (
           <form className={styles.root} onSubmit={handleSubmit}>
             <div className={styles.row}>
               <Field name="txt" component="textarea" type="text" />
             </div>
-            <button type="submit"> отправить</button>
+            <button type="submit" disabled={invalid}>
+              отправить
+            </button>
           </form>
         )}
       />

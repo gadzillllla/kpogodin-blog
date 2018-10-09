@@ -10,7 +10,12 @@ class LikesCounter extends Component {
       likes: [],
     };
   }
+
   componentWillMount() {
+    // var timeagoInstance = timeago();
+    // var date = new Date().getTime();
+    // console.log(date);
+    // console.log(timeagoInstance.format(date));
     const { likes } = this.state;
     const { postId } = this.props;
     const previousLikes = likes;

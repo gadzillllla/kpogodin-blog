@@ -899,6 +899,10 @@
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-1.2.1.tgz#3120e90246d0eb3c4fc6c61586a6f028a3c658ae"
 
+"@types/jquery@^2.0.40":
+  version "2.0.51"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.51.tgz#d0c728663de8905457a26c8891ac08ad2b3539c9"
+
 "@types/tapable@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
@@ -9710,6 +9714,12 @@ through@^2.3.6:
 thunky@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-1.0.2.tgz#a862e018e3fb1ea2ec3fce5d55605cf57f247371"
+
+timeago.js@^4.0.0-beta.1:
+  version "4.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/timeago.js/-/timeago.js-4.0.0-beta.1.tgz#9fd9523e42747f7957430f1d1df57de11a66741f"
+  dependencies:
+    "@types/jquery" "^2.0.40"
 
 timed-out@^4.0.0:
   version "4.0.1"

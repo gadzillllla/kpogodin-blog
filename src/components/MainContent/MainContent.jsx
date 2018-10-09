@@ -6,6 +6,7 @@ import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
 import AddPostForm from 'components/AddPostForm';
+import { sort } from 'lib/utils';
 
 class MainContent extends Component {
   state = {
@@ -21,6 +22,7 @@ class MainContent extends Component {
         id: snap.key,
         txt: snap.val().txt,
         title: snap.val().title,
+        time: snap.val().time,
       });
       this.setState(
         {
@@ -53,8 +55,15 @@ class MainContent extends Component {
     return (
       <div>
         <AddPostForm />
-        {posts.map(elem => (
-          <Post title={elem.title} text={elem.txt} key={elem.id} postId={elem.id} comments={elem.comments} />
+        {sort(posts.slice(), 'time').map(elem => (
+          <Post
+            title={elem.title}
+            text={elem.txt}
+            key={elem.id}
+            postId={elem.id}
+            time={elem.time}
+            comments={elem.comments}
+          />
         ))}
       </div>
     );

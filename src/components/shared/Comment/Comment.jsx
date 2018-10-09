@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './Comment.module.css';
 import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
+import timeago from 'timeago.js';
 import DeleteButton from 'components/shared/DeleteButton';
 
 class Comment extends Component {
@@ -19,10 +20,13 @@ class Comment extends Component {
       .remove();
   };
 
+  getTimeAgo = () => timeago().format(this.props.time);
+
   render() {
     const { id, txt, author, authorUid } = this.props;
     return (
       <div className={styles.comment} key={id}>
+        <p>{this.getTimeAgo()}</p>
         <p>{author}</p>
         <p>{txt}</p>
         <DeleteButton deleteItem={this.handleRemovePost} authorUid={authorUid} />

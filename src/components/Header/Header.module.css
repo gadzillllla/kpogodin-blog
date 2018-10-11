@@ -1,7 +1,7 @@
 @import '../shared/styles/vars.css';
 
 .container {
-  background-color: var(--main-background);
+  background-color: var(--main-dark);
   height: 100vh;
   position: fixed;
   width: 300px;
@@ -16,7 +16,7 @@
 
 .link {
   background: white;
-  background-color: var(--main-background);
+  background-color: var(--main-dark);
   color: white;
   height: 100%;
   text-align: center;

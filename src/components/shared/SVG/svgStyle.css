@@ -8,7 +8,6 @@
 }
 
 .logo {
-  background: var(--logo-background);
   margin: 50px;
   width: 80%;
 }
@@ -26,14 +25,12 @@
 }
 
 .delete {
-  fill: var(--light-items);
-  filter: drop-shadow(1px 1px 5px #000);
+  fill: var(--main-color);
   height: 15px;
   width: 15px;
 }
 
 .delete:hover {
-  fill: var(--orange);
-  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.37));
+  fill: var(--main-color);
   transform: scale(1.1, 1.1);
 }

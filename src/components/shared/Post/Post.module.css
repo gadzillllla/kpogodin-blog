@@ -8,10 +8,26 @@
 .post {
   animation: slide-up 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   background: var(--light-text);
-  border-left: 5px solid var(--border-post);
+  border-left: 15px solid var(--main-color);
+  border-radius: 5px;
+  box-shadow: var(--shadow);
   margin-bottom: 50px;
-  padding: 10px 10px 50px 10px;
+  padding: 10px 10px 50px 20px;
   position: relative;
+}
+
+.title {
+  margin: 6px 0 12px 0;
+}
+
+.time {
+  color: rgb(172, 172, 172);
+  font-size: 11px;
+  height: 10px;
+  left: 4px;
+  line-height: 1px;
+  position: absolute;
+  top: -10px;
 }
 
 @keyframes slide-up {

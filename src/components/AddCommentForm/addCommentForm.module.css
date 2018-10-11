@@ -11,7 +11,7 @@
   align-items: center;
   background-color: var(--light-items);
   border-radius: 5px;
-  box-shadow: 0 0 10px;
+  box-shadow: var(--shadow);
   display: flex;
   height: 30px;
   width: 100%;

@@ -71,11 +71,12 @@ class Post extends Component {
     return (
       <div className={styles.root}>
         <div className={styles.post}>
+          <span className={styles.time}>{this.getTimeAgo()}</span>
           <DeleteButton deleteItem={this.handleRemovePost} />
 
-          <h1 className={styles.test}>{title} </h1>
-          <div className={styles.test}>{text} </div>
-          <span className={styles.time}>{this.getTimeAgo()}</span>
+          <h1 className={styles.title}>{title} </h1>
+          <div className={styles.txt}>{text} </div>
+
           <LikesCounter count={likes.length} postId={postId} likesList={likes} />
           <AddCommentForm id={postId} />
         </div>

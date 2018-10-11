@@ -1,11 +1,11 @@
-.test {
-    color: red
+.root {
+  padding-top: 30px;
 }
 
-.loading{
-display: block
+.loading {
+  display: block;
 }
 
-.loaded{
-display: none
+.loaded {
+  display: none;
 }

@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
 import AddPostForm from 'components/AddPostForm';
 import { sortObjByKey } from 'lib/utils';
+import { styles } from 'ansi-colors';
 
 class MainContent extends Component {
   state = {
@@ -53,7 +54,7 @@ class MainContent extends Component {
       return <Loader />;
     }
     return (
-      <div>
+      <div className={styles.root}>
         <AddPostForm />
         {sortObjByKey(posts.slice(), 'time').map(elem => (
           <Post

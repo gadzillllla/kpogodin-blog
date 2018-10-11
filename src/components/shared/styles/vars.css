@@ -1,12 +1,43 @@
 :root {
+  --BLUE: #007abb;
+  --RED: #d20000;
+  --WHITE: white;
+  --LIGHT-GREY: #e4e2e3;
+  --disabled: rgb(167, 166, 166);
+  --main-color: var(--RED);
+  --main-dark: #bfbfbf;
+  --main-dark-op: #565656;
+  --main-white: #fff;
+  --light-items: #fff;
+  --header-background: #666969;
+  --body-background: rgb(85, 72, 72);
+  --content-background: var(--LIGHT-GREY);
+  --main-comment-background: #fff;
+  --border-post: var(--RED);
+  --logo-shape: var(--RED);
+  --logo-text: black;
+  --logo-background: var(--RED);
+  --svg-color: var(--RED);
+  --post-background: #3a3a39;
+  --post-background-hover: #333332;
+  --light-text: #fff;
+  --shadow: 3px 2px 5px #828282;
+  --small-shadow: 1px 1px 1px #5f5f5f;
+  --text-color: #464646;
+}
+
+/* :root {
   --orange: #edb24a;
   --disabled: rgb(167, 166, 166);
   --main-color: var(--orange);
+  --main-dark: #404040;
+  --main-dark-op: #565656;
   --main-white: #e4e2e3;
   --light-items: var(--main-white);
+  --header-background: #666969;
   --body-background: rgb(85, 72, 72);
-  --main-background: #343f41;
-  --main-comment-background: #4a5556;
+  --main-background: #1b1a18ad;
+  --main-comment-background: #404040;
   --border-post: var(--orange);
   --logo-shape: var(--orange);
   --logo-text: black;
@@ -15,4 +46,29 @@
   --post-background: #3a3a39;
   --post-background-hover: #333332;
   --light-text: var(--main-white);
-}
+
+      --BLUE: #d20000;
+    --WHITE: white;
+    --LIGHT-GREY: #e4e2e3;
+    --disabled: rgb(167, 166, 166);
+    --main-color: var(--BLUE);
+    --main-dark: #bfbfbf;
+    --main-dark-op: #565656;
+    --main-white: #fff;
+    --light-items: #fff;
+    --header-background: #666969;
+    --body-background: rgb(85, 72, 72);
+    --content-background: var(--LIGHT-GREY);
+    --main-comment-background: #fff;
+    --border-post: var(--BLUE);
+    --logo-shape: var(--BLUE);
+    --logo-text: black;
+    --logo-background: var(--WHITE);
+    --svg-color: var(--BLUE);
+    --post-background: #3a3a39;
+    --post-background-hover: #333332;
+    --light-text: #fff;
+    --shadow: 3px 2px 5px #828282;
+    --small-shadow: 1px 1px 1px #5f5f5f;
+    --text-color: #464646;
+} */

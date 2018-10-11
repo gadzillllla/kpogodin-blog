@@ -21,6 +21,7 @@ class AddCommentForm extends Component {
           txt: values.txt,
           author: this.props.username,
           authorUid: this.props.uid,
+          userPicUrl: this.props.userPicUrl,
           time: date,
         });
       values.txt = '';
@@ -42,12 +43,18 @@ class AddCommentForm extends Component {
         validate={this.validate}
         render={({ handleSubmit, invalid }) => (
           <form className={styles.root} onSubmit={handleSubmit}>
-            <div className={styles.row}>
-              <Field name="txt" component="textarea" type="text" />
+            <div className={styles.container}>
+              <Field
+                className={styles.input}
+                name="txt"
+                component="textarea"
+                type="text"
+                placeholder="Add a Comment..."
+              />
+              <button className={styles.btn} type="submit" disabled={invalid}>
+                submit
+              </button>
             </div>
-            <button type="submit" disabled={invalid}>
-              отправить
-            </button>
           </form>
         )}
       />
@@ -58,6 +65,7 @@ class AddCommentForm extends Component {
 const mapStateToProps = state => ({
   username: state.userReducer.username,
   uid: state.userReducer.userUid,
+  userPicUrl: state.userReducer.userPicUrl,
 });
 
 // LoginForm.propTypes = {

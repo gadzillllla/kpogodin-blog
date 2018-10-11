@@ -19,5 +19,7 @@ export const databasePosts = appDB
   .ref()
   .child('posts');
 
+export const storage = firebase.storage();
+
 // const id = '-LFJx46jPOaLVDGaC';
 // export const currentPost = databasePosts.child(id);

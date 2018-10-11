@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
+import { databasePosts } from 'DBconfig/DB_CONFIG';
 import styles from './LikesCounter.module.css';
+import cn from 'classnames';
 
 class LikesCounter extends Component {
   constructor(props) {
@@ -12,10 +13,6 @@ class LikesCounter extends Component {
   }
 
   componentWillMount() {
-    // var timeagoInstance = timeago();
-    // var date = new Date().getTime();
-    // console.log(date);
-    // console.log(timeagoInstance.format(date));
     const { likes } = this.state;
     const { postId } = this.props;
     const previousLikes = likes;
@@ -77,10 +74,13 @@ class LikesCounter extends Component {
 
   render() {
     const { likes } = this.state;
+    const { userUid } = this.props;
+    const likeChecked = this.searchIdByAuthor(likes, userUid);
     return (
-      <div className={styles.root}>
-        <button onClick={this.addLike}>likes {likes.length}</button>
-      </div>
+      <button className={styles.root} onClick={this.addLike}>
+        <span className={cn(styles.heart, { [styles.checked]: likeChecked })}>♥ </span>
+        <span className={styles.counter}>{likes.length}</span>
+      </button>
     );
   }
 }

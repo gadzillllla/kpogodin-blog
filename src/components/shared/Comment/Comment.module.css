@@ -1,20 +1,77 @@
 @import '../styles/vars.css';
 
 .root {
-  background-color: var(--post-background);
-  border-left: 5px solid var(--border-post);
-  color: var(--post-text-color);
-  margin: 10px;
-  padding: 10px;
-}
-
-.root:hover {
-  background-color: var(--post-background-hover);
+  animation: slide-up 0.4s ease-in-out;
+  display: flex;
+  margin-left: 20%;
+  position: relative;
+  width: 80%;
 }
 
 .comment {
+  background-color: var(--main-comment-background);
+  border-radius: 5px;
+  color: var(--light-text);
   display: flex;
+  flex-direction: column;
+  margin: 4px 0;
+  margin-left: 15px;
+  min-height: 60px;
+  padding: 0 15px 10px 10px;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.avatar {
+  margin-top: 4px;
+}
+
+.time {
+  color: grey;
+}
+
+.author {
+  color: var(--main-color);
+  line-height: 5px;
+}
+
+.header {
+  display: flex;
+  font-size: 10px;
   justify-content: space-between;
-  margin-left: 40%;
-  width: 60%;
+}
+
+.txt {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.top {
+  align-items: center;
+  display: flex;
+}
+
+.sqrt {
+  background: var(--main-comment-background);
+  height: 22px;
+  left: 53px;
+  position: absolute;
+  top: 15px;
+  transform: rotate(45deg);
+  width: 25px;
+  z-index: 1;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0.4;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

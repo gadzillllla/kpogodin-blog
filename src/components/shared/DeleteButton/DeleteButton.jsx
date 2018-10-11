@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import styles from './DeleteButton.module.css';
+import React from 'react';
 import { connect } from 'react-redux';
-import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
+import Svg from 'components/shared/SVG/delete';
+import styles from './DeleteButton.module.css';
 
 const DeleteButton = ({ deleteItem, admin, userUid, authorUid }) =>
   admin || userUid === authorUid ? (
     <button className={styles.deleteButton} onClick={deleteItem}>
-      delete
+      <Svg />
     </button>
   ) : null;
 

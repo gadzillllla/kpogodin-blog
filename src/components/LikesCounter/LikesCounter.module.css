@@ -1,3 +1,31 @@
+@import '../shared/styles/vars.css';
+
 .root {
-  margin: 10px;
+  background-color: var(--light-items);
+  border: none;
+  border-radius: 2px;
+  border-radius: 5px;
+  bottom: -16px;
+  box-shadow: 0 0 10px;
+  color: black;
+  font-size: 14px;
+  height: 30px;
+  outline: none;
+  position: absolute;
+  right: 10px;
+  transition: 0.1s ease-in;
+  width: 50px;
+}
+
+.root:hover {
+  transform: scale(1.15, 1.15);
+}
+
+.heart {
+  font-size: 16px;
+}
+
+.checked {
+  color: rgb(221, 2, 2);
+  font-size: 16px;
 }

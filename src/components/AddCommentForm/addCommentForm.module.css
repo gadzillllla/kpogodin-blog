@@ -1,4 +1,60 @@
 .root {
-    background-color: grey;
-    margin: 10px;
+  align-items: center;
+  bottom: -16px;
+  display: flex;
+  position: absolute;
+  right: 85px;
+  width: 72%;
+}
+
+.container {
+  align-items: center;
+  background-color: var(--light-items);
+  border-radius: 5px;
+  box-shadow: 0 0 10px;
+  display: flex;
+  height: 30px;
+  width: 100%;
+}
+
+.input {
+  background: none;
+  border: none;
+  height: 20px;
+  outline: none;
+  padding: 5px 0 0 20px;
+  resize: none;
+  width: 85%;
+}
+
+.btn {
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 5px;
+  color: black;
+  height: 20px;
+  margin: 0 10px;
+  outline: none;
+  transition: 0.1s ease-out;
+  width: 15%;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.1, 1.1);
+}
+
+.btn:disabled {
+  background-color: var(--disabled);
+  color: rgb(209, 209, 209);
+}
+
+.btn:disabled {
+  background-color: var(--disabled);
+  color: rgb(209, 209, 209);
+}
+
+.btn:disabled:hover {
+  filter: brightness(1);
+  transform: scale(1, 1);
 }

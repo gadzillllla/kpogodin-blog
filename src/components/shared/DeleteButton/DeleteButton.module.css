@@ -1,20 +1,14 @@
 @import '../styles/vars.css';
 
-.root {
-  background-color: var(--post-background);
-  border-left: 5px solid var(--border-post);
-  color: var(--post-text-color);
-  margin: 10px;
-  padding: 10px;
-}
-
-.root:hover {
-  background-color: var(--post-background-hover);
-}
-
-.comment {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 40%;
-  width: 60%;
+.deleteButton {
+  background: none;
+  border: none;
+  height: 20px;
+  margin-left: 20px;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  right: -9px;
+  top: -8px;
+  width: 20px;
 }

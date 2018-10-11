@@ -1,4 +1,4 @@
-export const sort = (arr, key) => {
+export const sortObjByKey = (arr, key) => {
   return arr.sort((a, b) => {
     if (a[key] < b[key]) return 1;
     if (a[key] > b[key]) return -1;

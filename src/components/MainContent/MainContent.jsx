@@ -6,7 +6,7 @@ import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
 import AddPostForm from 'components/AddPostForm';
-import { sort } from 'lib/utils';
+import { sortObjByKey } from 'lib/utils';
 
 class MainContent extends Component {
   state = {
@@ -55,7 +55,7 @@ class MainContent extends Component {
     return (
       <div>
         <AddPostForm />
-        {sort(posts.slice(), 'time').map(elem => (
+        {sortObjByKey(posts.slice(), 'time').map(elem => (
           <Post
             title={elem.title}
             text={elem.txt}

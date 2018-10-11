@@ -1,7 +1,12 @@
 :root {
-  --orange: #eb8808;
-  --body-background: black;
-  --main-background: #464544;
+  --orange: #edb24a;
+  --disabled: rgb(167, 166, 166);
+  --main-color: var(--orange);
+  --main-white: #e4e2e3;
+  --light-items: var(--main-white);
+  --body-background: rgb(85, 72, 72);
+  --main-background: #343f41;
+  --main-comment-background: #4a5556;
   --border-post: var(--orange);
   --logo-shape: var(--orange);
   --logo-text: black;
@@ -9,5 +14,5 @@
   --svg-color: var(--orange);
   --post-background: #3a3a39;
   --post-background-hover: #333332;
-  --post-text-color: #e4e2e3;
+  --light-text: var(--main-white);
 }

@@ -7,7 +7,7 @@ import AddCommentForm from 'components/AddCommentForm';
 import LikesCounter from 'components/LikesCounter';
 import Comment from 'components/shared/Comment';
 import DeleteButton from 'components/shared/DeleteButton';
-import { sort } from 'lib/utils';
+import { sortObjByKey } from 'lib/utils';
 
 class Post extends Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class Post extends Component {
           author: snap.val().author,
           authorUid: snap.val().authorUid,
           time: snap.val().time,
+          userPicUrl: snap.val().userPicUrl,
         });
         this.setState({
           comments: previousComments,
@@ -64,21 +65,24 @@ class Post extends Component {
   };
 
   render() {
-    const { text, title, postId, time } = this.props;
+    const { text, title, postId, time, userPicUrl } = this.props;
     const { comments, likes } = this.state;
 
     return (
       <div className={styles.root}>
-        <DeleteButton deleteItem={this.handleRemovePost} />
-        <span>{postId}</span>
-        <span>{this.getTimeAgo()}</span>
-        <h1 className={styles.test}>{title} </h1>
-        <div className={styles.test}>{text} </div>
+        <div className={styles.post}>
+          <DeleteButton deleteItem={this.handleRemovePost} />
 
-        <LikesCounter count={likes.length} postId={postId} likesList={likes} />
-        <AddCommentForm id={postId} />
-        {sort(comments.slice(), 'time').map(elem => (
+          <h1 className={styles.test}>{title} </h1>
+          <div className={styles.test}>{text} </div>
+          <span className={styles.time}>{this.getTimeAgo()}</span>
+          <LikesCounter count={likes.length} postId={postId} likesList={likes} />
+          <AddCommentForm id={postId} />
+        </div>
+
+        {sortObjByKey(comments.slice(), 'time').map(elem => (
           <Comment
+            userPicUrl={elem.userPicUrl}
             postId={postId}
             id={elem.id}
             author={elem.author}

@@ -1,4 +1,31 @@
 .root {
-    background-color: grey;
-    margin: 10px;
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.title {
+  background: none;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+.txt {
+  background: none;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  height: 25px;
+}
+
+.btn {
+  background: none;
+  margin-left: 10px;
 }

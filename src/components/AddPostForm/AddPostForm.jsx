@@ -26,24 +26,31 @@ const validate = values => {
   return errors;
 };
 
-const AddPostForm = () => (
-  <Form
-    onSubmit={addPost}
-    validate={validate}
-    render={({ handleSubmit, invalid }) => (
-      <form className={styles.root} onSubmit={handleSubmit}>
-        <div className={styles.row}>
-          <Field name="title" component="input" type="text" placeholder="Заголовок" />
-        </div>
-        <div className={styles.row}>
-          <Field name="txt" component="textarea" type="text" placeholder="Текст" />
-        </div>
-        <button type="submit" disabled={invalid}>
-          отправить
-        </button>
-      </form>
-    )}
-  />
-);
+const AddPostForm = ({ admin }) => {
+  if (admin)
+    return (
+      <Form
+        onSubmit={addPost}
+        validate={validate}
+        render={({ handleSubmit, invalid }) => (
+          <form className={styles.root} onSubmit={handleSubmit}>
+            <div className={styles.row}>
+              <Field className={styles.title} name="title" component="input" type="text" placeholder="Заголовок" />
+              <Field className={styles.txt} name="txt" component="textarea" type="text" placeholder="Текст" />
+            </div>
+            <button className={styles.btn} type="submit" disabled={invalid}>
+              отправить
+            </button>
+          </form>
+        )}
+      />
+    );
+  return null;
+};
 
-export default AddPostForm;
+const mapStateToProps = state => ({
+  admin: state.userReducer.admin,
+  userUid: state.userReducer.userUid,
+});
+
+export default connect(mapStateToProps)(AddPostForm);

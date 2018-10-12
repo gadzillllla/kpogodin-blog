@@ -1,0 +1,29 @@
+.root {
+  align-items: center;
+  background: var(--content-background);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  height: 50px;
+  margin: 2px 0;
+  transition: 0.1s ease-in;
+  width: 100%;
+}
+
+.root:hover {
+  box-shadow: var(--shadow);
+  transform: scale(1.05, 1.05);
+}
+
+.icon {
+  margin-right: 20px;
+}
+
+.Facebook {
+}
+
+.Google {
+}

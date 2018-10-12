@@ -5,10 +5,13 @@ import { appDB, facebookProvider, googleProvider } from 'DBconfig/DB_CONFIG';
 import { userLogin, userLogout, adminMode } from 'actions/userActions';
 import PropTypes from 'prop-types';
 import styles from './LoginForm.module.css';
+import LoginButton from 'components/LoginButton';
 import SvgKey from 'components/shared/SVG/key';
 import SvgLogin from 'components/shared/SVG/login';
 import SignUpForm from 'components/SignUpForm';
 import adminToken from 'DBconfig/DB_ADMIN_TOKEN';
+import Facebook from 'components/shared/SVG/facebook';
+import Google from 'components/shared/SVG/google';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -100,12 +103,8 @@ class LoginForm extends Component {
             <button type="button" onClick={this.toSignUp}>
               Зарегистрироваться
             </button>
-            <button type="button" onClick={this.facebookLogin}>
-              fb
-            </button>
-            <button type="button" onClick={this.googleLogin}>
-              google
-            </button>
+            <LoginButton svg={<Facebook />} type="Facebook" onClick={this.facebookLogin} />
+            <LoginButton svg={<Google />} type="Google" onClick={this.googleLogin} />
           </form>
         )}
       />

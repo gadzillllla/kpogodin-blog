@@ -34,3 +34,8 @@
   fill: var(--main-color);
   transform: scale(1.1, 1.1);
 }
+
+.loginSVG {
+  height: 35px;
+  width: 35px;
+}

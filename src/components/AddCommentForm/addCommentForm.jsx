@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
+import CurrentAvatar from 'components/shared/CurrentAvatar';
 import styles from './addCommentForm.module.css';
 
 class AddCommentForm extends Component {
@@ -38,12 +39,13 @@ class AddCommentForm extends Component {
 
   render() {
     return (
-      <Form
-        onSubmit={this.addComment}
-        validate={this.validate}
-        render={({ handleSubmit, invalid }) => (
-          <form className={styles.root} onSubmit={handleSubmit}>
-            <div className={styles.container}>
+      <div className={styles.root}>
+        <CurrentAvatar />
+        <Form
+          onSubmit={this.addComment}
+          validate={this.validate}
+          render={({ handleSubmit, invalid }) => (
+            <form className={styles.form} onSubmit={handleSubmit}>
               <Field
                 className={styles.input}
                 name="txt"
@@ -54,10 +56,10 @@ class AddCommentForm extends Component {
               <button className={styles.btn} type="submit" disabled={invalid}>
                 submit
               </button>
-            </div>
-          </form>
-        )}
-      />
+            </form>
+          )}
+        />
+      </div>
     );
   }
 }

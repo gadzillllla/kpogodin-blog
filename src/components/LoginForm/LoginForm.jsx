@@ -6,12 +6,11 @@ import { userLogin, userLogout, adminMode } from 'actions/userActions';
 import PropTypes from 'prop-types';
 import styles from './LoginForm.module.css';
 import LoginButton from 'components/LoginButton';
-import SvgKey from 'components/shared/SVG/key';
-import SvgLogin from 'components/shared/SVG/login';
 import SignUpForm from 'components/SignUpForm';
 import adminToken from 'DBconfig/DB_ADMIN_TOKEN';
 import Facebook from 'components/shared/SVG/facebook';
 import Google from 'components/shared/SVG/google';
+import Avatar from 'components/shared/Avatar';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -22,6 +21,7 @@ class LoginForm extends Component {
   }
   componentDidMount() {
     this.authListener();
+    console.log(this.state.userPicUrl);
   }
 
   authListener = () => {
@@ -71,12 +71,13 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { username } = this.props;
+    const { username, userPicUrl } = this.props;
     const { form } = this.state;
     if (username) {
       return (
         <div>
           <p>{username}</p>
+          <Avatar userPicUrl={userPicUrl} />
           <button type="button" onClick={this.logout} />
         </div>
       );
@@ -91,18 +92,25 @@ class LoginForm extends Component {
         onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
           <form className={styles.root} onSubmit={handleSubmit}>
-            <div className={styles.row}>
-              <SvgLogin className={styles.icon} />
-              <Field name="login" component="input" type="text" placeholder="Логин" />
+            <div className={styles.form}>
+              <Avatar userPicUrl={userPicUrl} />
+              <Field className={styles.input} name="login" component="input" type="text" placeholder="email" />
+              <Field
+                className={styles.input}
+                name="password"
+                component="input"
+                type="password"
+                placeholder="password"
+              />
+              <div className={styles.buttons}>
+                <button className={styles.signButton} type="button" onClick={this.toSignUp}>
+                  SIGN UP
+                </button>
+                <button className={styles.loginButton} type="submit">
+                  LOGIN
+                </button>
+              </div>
             </div>
-            <div className={styles.row}>
-              <SvgKey className={styles.icon} />
-              <Field name="password" component="input" type="password" placeholder="Пароль" />
-            </div>
-            <button type="submit"> вход</button>
-            <button type="button" onClick={this.toSignUp}>
-              Зарегистрироваться
-            </button>
             <LoginButton svg={<Facebook />} type="Facebook" onClick={this.facebookLogin} />
             <LoginButton svg={<Google />} type="Google" onClick={this.googleLogin} />
           </form>
@@ -114,6 +122,7 @@ class LoginForm extends Component {
 
 const mapStateToProps = state => ({
   username: state.userReducer.username,
+  userPicUrl: state.userReducer.userPicUrl,
 });
 
 LoginForm.propTypes = {

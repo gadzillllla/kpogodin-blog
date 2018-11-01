@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Icon } from 'antd';
 import { connect } from 'react-redux';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
 import styles from './LikesCounter.module.css';
-import cn from 'classnames';
 
 class LikesCounter extends Component {
   constructor(props) {
@@ -72,15 +72,23 @@ class LikesCounter extends Component {
         .remove();
   };
 
-  render() {
+  renderHeart = () => {
     const { likes } = this.state;
     const { userUid } = this.props;
     const likeChecked = this.searchIdByAuthor(likes, userUid);
+    if (likeChecked) return <Icon type="heart" theme="filled" style={{ fontSize: '25px', color: '#d8342e' }} />;
+    return <Icon type="heart" theme="outlined" style={{ fontSize: '25px', color: 'white' }} />;
+  };
+
+  render() {
+    const { likes } = this.state;
     return (
-      <button className={styles.root} onClick={this.addLike}>
-        <span className={cn(styles.heart, { [styles.checked]: likeChecked })}>♥ </span>
+      <div className={styles.root}>
+        <button className={styles.container} onClick={this.addLike}>
+          {this.renderHeart()}
+        </button>
         <span className={styles.counter}>{likes.length}</span>
-      </button>
+      </div>
     );
   }
 }

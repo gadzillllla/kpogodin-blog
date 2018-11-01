@@ -7,7 +7,8 @@ import PropTypes from 'prop-types';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
 import AddPostForm from 'components/AddPostForm';
 import { sortObjByKey } from 'lib/utils';
-import { styles } from 'ansi-colors';
+import { withRouter } from 'react-router';
+import styles from './MainContent.module.css';
 
 class MainContent extends Component {
   state = {
@@ -49,23 +50,27 @@ class MainContent extends Component {
 
   render() {
     const { posts } = this.state;
-    const { loaded } = this.props;
+    const { loaded, match, location, history } = this.props;
+    console.log(match, location, history);
     if (!loaded) {
       return <Loader />;
     }
     return (
       <div className={styles.root}>
-        <AddPostForm />
-        {sortObjByKey(posts.slice(), 'time').map(elem => (
-          <Post
-            title={elem.title}
-            text={elem.txt}
-            key={elem.id}
-            postId={elem.id}
-            time={elem.time}
-            comments={elem.comments}
-          />
-        ))}
+        <h1 className={styles.pageTitle}>KPOGODIN</h1>
+        <div className={styles.content}>
+          <AddPostForm />
+          {sortObjByKey(posts.slice(), 'time').map(elem => (
+            <Post
+              title={elem.title}
+              text={elem.txt}
+              key={elem.id}
+              postId={elem.id}
+              time={elem.time}
+              comments={elem.comments}
+            />
+          ))}
+        </div>
       </div>
     );
   }
@@ -83,4 +88,4 @@ MainContent.propTypes = {
 export default connect(
   mapStateToProps,
   { blogLoaded, blogLoading },
-)(MainContent);
+)(withRouter(MainContent));

@@ -1,60 +1,48 @@
 .root {
-  align-items: center;
-  bottom: -16px;
+  align-items: space-between;
   display: flex;
-  position: absolute;
-  right: 85px;
-  width: 72%;
+  height: 50px;
+  margin-top: 20px;
+  padding: 0;
+  width: 90%;
 }
 
-.container {
-  align-items: center;
-  background-color: var(--light-items);
-  border-radius: 5px;
-  box-shadow: var(--shadow);
+.form {
+  align-items: space-between;
   display: flex;
-  height: 30px;
+  height: 50px;
+  padding: 0;
   width: 100%;
 }
 
 .input {
-  background: none;
   border: none;
-  height: 20px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 15px;
   outline: none;
-  padding: 5px 0 0 20px;
+  padding: 0 0 0 20px;
   resize: none;
-  width: 85%;
+  width: 100%;
 }
 
 .btn {
-  background-color: var(--main-color);
+  background-color: #333;
   border: none;
-  border-radius: 5px;
-  color: black;
-  height: 20px;
-  margin: 0 10px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+  height: 50px;
   outline: none;
-  transition: 0.1s ease-out;
+  resize: none;
+  transition: 0.1s ease-in;
   width: 15%;
 }
 
 .btn:hover {
-  filter: brightness(1.1);
-  transform: scale(1.1, 1.1);
-}
-
-.btn:disabled {
-  background-color: var(--disabled);
-  color: rgb(209, 209, 209);
-}
-
-.btn:disabled {
-  background-color: var(--disabled);
-  color: rgb(209, 209, 209);
-}
-
-.btn:disabled:hover {
-  filter: brightness(1);
-  transform: scale(1, 1);
+  transform: scale(1.15, 1.15);
 }

@@ -1,31 +1,24 @@
 @import '../shared/styles/vars.css';
 
 .root {
-  background-color: var(--light-items);
+  align-items: center;
+  color: white;
+  display: flex;
+  font-size: 18px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.container {
+  background: none;
   border: none;
-  border-radius: 2px;
-  border-radius: 5px;
-  bottom: -16px;
-  box-shadow: var(--shadow);
-  color: black;
-  font-size: 14px;
-  height: 30px;
+  height: 28px;
+  margin-right: 0;
   outline: none;
-  position: absolute;
-  right: 10px;
   transition: 0.1s ease-in;
-  width: 50px;
+  width: 45px;
 }
 
-.root:hover {
-  transform: scale(1.15, 1.15);
-}
-
-.heart {
-  font-size: 16px;
-}
-
-.checked {
-  color: rgb(221, 2, 2);
-  font-size: 16px;
+.container:hover {
+  transform: scale(1.1, 1.1);
 }

@@ -1,28 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,600,900');
 @import './components/shared/styles/vars.css';
 
 body {
-  /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAHUlEQVQYV2M8c+bMfwYkoKioCOfdv3+fgXEQKAAAhfcf9V1Eh18AAAAASUVORK5CYII=); */
+  background-attachment: fixed;
 
-  /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyG_0RvjrF-7ZglOVfVpx54BBj26Lbl8Gs7yodf2CXy9nKJ8co'); */
-  color: var(--text-color);
+  /* background-color: #f03d36; */
+  background-image: linear-gradient(to right, #fd5e59, #d8342e, #f15f5a);
   font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   margin: 0;
   overflow: scroll;
   padding: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* main title on page */
+h1 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* title of post */
+h3 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* title of comment (name) */
+h5 {
+  margin-top: 0;
+}
+
+p {
+  color: rgb(255, 254, 254);
+  font-size: 16px;
+  margin: 0 0 15px 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .App {
-  background-color: var(--content-background);
-  box-shadow: 0 0 80px;
+  box-shadow: 0 0 100px black;
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  max-width: 1024px;
   min-height: 100vh;
 }
 
 .content {
-  margin-left: 300px;
-  padding-top: 50px;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 1280px;
 }

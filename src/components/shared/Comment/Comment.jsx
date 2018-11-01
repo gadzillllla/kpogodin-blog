@@ -29,16 +29,15 @@ class Comment extends Component {
     return (
       <div className={styles.root} key={id}>
         <div className={styles.avatar}>
-          <span className={styles.sqrt} />
           <Avatar userPicUrl={userPicUrl} />
         </div>
         <div className={styles.comment}>
           <DeleteButton deleteItem={this.handleRemovePost} authorUid={authorUid} />
           <div className={styles.header}>
-            <p className={styles.author}>{author}</p>
-            <p className={styles.time}>{this.getTimeAgo()}</p>
+            <h5 className={styles.author}>{author}</h5>
+            <span className={styles.time}>{this.getTimeAgo()}</span>
           </div>
-          <p className={styles.txt}>{txt}</p>
+          <span className={styles.txt}>{txt}</span>
         </div>
       </div>
     );

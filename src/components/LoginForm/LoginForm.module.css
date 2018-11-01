@@ -1,16 +1,60 @@
 .root {
-  margin: 100px 0 0 50px;
-  width: 90%;
+  margin: 100px auto;
+  width: 80%;
 }
 
-.row {
+.form {
+  align-items: center;
+  background-color: var(--content-background);
+  border-radius: 5px;
   display: flex;
-  height: 20px;
-  margin-bottom: 5px;
+  flex-direction: column;
+  padding: 0 5%;
 }
 
-.icon {
+.input {
+  background: var(--light-items);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 12px;
+  height: 30px;
+  line-height: 10px;
+  margin-top: 5px;
+  outline: none;
+  padding-top: 0;
+  resize: none;
+  text-align: center;
+  width: 100%;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* .icon {
   fill: red;
   margin-right: 10px;
   width: 20px;
+} */
+
+.buttons {
+  display: flex;
+  height: 25px;
+  justify-content: space-between;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.signButton {
+  background: none;
+  border: none;
+}
+
+.loginButton {
+  background-color: var(--WHITE);
+  border-radius: 5px;
 }

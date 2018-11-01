@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import LoginForm from 'components/LoginForm';
 import Routes from 'lib/routes';
 import styles from './Header.module.css';
@@ -21,16 +21,30 @@ const NAVIGATION_BAR = [
 ];
 
 const Header = () => (
-  <header className={styles.container}>
-    <LogoSvg />
-    <nav className={styles.navigation}>
+  <header className={styles.root}>
+    <div className={styles.container}>
+      <h5 className={styles.logo}>
+        <b>KPOGODIN</b> blog
+      </h5>
+      <div>
+        <button>login</button>
+      </div>
+    </div>
+    {/* <LogoSvg /> */}
+    {/* <nav className={styles.navigation}>
       {NAVIGATION_BAR.map(elem => (
-        <Link key={elem.link} className={styles.link} to={elem.link}>
+        <NavLink
+          exact
+          key={elem.link}
+          activeStyle={{ color: 'black', background: 'white' }}
+          className={styles.link}
+          to={elem.link}
+        >
           <p>{elem.label}</p>
-        </Link>
+        </NavLink>
       ))}
-    </nav>
-    <LoginForm />
+    </nav> */}
+    {/* <LoginForm /> */}
   </header>
 );
 

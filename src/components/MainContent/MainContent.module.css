@@ -1,5 +1,5 @@
 .root {
-  padding-top: 30px;
+  padding-top: 0;
 }
 
 .loading {
@@ -8,4 +8,17 @@
 
 .loaded {
   display: none;
+}
+
+.pageTitle {
+  font-size: 70px;
+  height: 150px;
+  padding-top: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.content {
+  background-color: #444;
+  padding-top: 100px;
 }

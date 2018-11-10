@@ -74,17 +74,19 @@ class LikesCounter extends Component {
 
   renderHeart = () => {
     const { likes } = this.state;
-    const { userUid } = this.props;
+    const { userUid, logged } = this.props;
     const likeChecked = this.searchIdByAuthor(likes, userUid);
+    if (!logged) return <Icon type="heart" theme="filled" style={{ fontSize: '25px', color: 'grey' }} />;
     if (likeChecked) return <Icon type="heart" theme="filled" style={{ fontSize: '25px', color: '#d8342e' }} />;
     return <Icon type="heart" theme="outlined" style={{ fontSize: '25px', color: 'white' }} />;
   };
 
   render() {
     const { likes } = this.state;
+    const { logged } = this.props;
     return (
       <div className={styles.root}>
-        <button className={styles.container} onClick={this.addLike}>
+        <button disabled={!logged} className={styles.container} onClick={this.addLike}>
           {this.renderHeart()}
         </button>
         <span className={styles.counter}>{likes.length}</span>
@@ -94,6 +96,7 @@ class LikesCounter extends Component {
 }
 
 const mapStateToProps = state => ({
+  logged: state.userReducer.logged,
   userUid: state.userReducer.userUid,
 });
 

@@ -5,56 +5,123 @@
 
 .form {
   align-items: center;
-  background-color: var(--content-background);
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  padding: 0 5%;
 }
 
 .input {
-  background: var(--light-items);
+  background: none;
   border: none;
-  border-radius: 5px;
-  color: var(--text-color);
-  font-size: 12px;
+  border-bottom: 1px solid #b2b2b2;
+  color: white;
+  font-size: 20px;
   height: 30px;
   line-height: 10px;
-  margin-top: 5px;
+  margin-bottom: 20px;
   outline: none;
-  padding-top: 0;
   resize: none;
   text-align: center;
-  width: 100%;
+  width: 300px;
+}
+
+.input:focus {
+  border-bottom: 1px solid white;
 }
 
 .input:-webkit-autofill,
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus,
 .input:-webkit-autofill:active {
+  -webkit-text-fill-color: white;
   transition: background-color 5000s ease-in-out 0s;
 }
-
-/* .icon {
-  fill: red;
-  margin-right: 10px;
-  width: 20px;
-} */
 
 .buttons {
   display: flex;
   height: 25px;
   justify-content: space-between;
-  margin: 10px 0;
+  margin-top: 30px;
   width: 100%;
 }
 
-.signButton {
+.mainButton {
   background: none;
-  border: none;
+  border: 2px solid white;
+  color: white;
+  line-height: 0;
+  padding: 18px;
+  transition: 0.1s ease-in-out;
 }
 
-.loginButton {
-  background-color: var(--WHITE);
-  border-radius: 5px;
+.mainButton:hover {
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
+  text-shadow: var(--small-shadow);
+  transform: scale(1.05, 1.05);
+}
+
+.secondButton {
+  background: none;
+  border: none;
+  color: white;
+  line-height: 0;
+  padding: 18px;
+  transition: 0.1s ease-in-out;
+}
+
+.secondButton:hover {
+  border-bottom: 2px solid white;
+  transform: scale(1.05, 1.05);
+}
+
+.button {
+  margin-left: 5px;
+  margin-top: 7px;
+}
+
+.button svg {
+  color: #b2b2b2;
+  font-size: 25px;
+  transition: 0.1s ease-out;
+}
+
+.button svg:hover {
+  color: white;
+  transform: scale(1.05, 1.05);
+}
+
+.customOverlay {
+  background: rgba(0, 0, 0, 0.678);
+}
+
+.customModal {
+  background: #444;
+  width: 400px;
+}
+
+.icon svg {
+  color: #b2b2b2;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.row {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfo {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.username {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0 30px 0 10px;
+  text-shadow: none;
 }

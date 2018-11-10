@@ -7,6 +7,7 @@ import MainContent from './components/MainContent';
 import About from './components/About';
 import Routes from './lib/routes';
 import Video from './components/Video';
+import PostEditor from './components/PostEditor/';
 import './App.css';
 
 /* eslint-disable */
@@ -20,6 +21,7 @@ const App = () => (
           <Route exact path={Routes.rootPath} component={MainContent} />
           <Route path={Routes.aboutPath} component={About} />
           <Route path={Routes.videoPath} component={Video} />
+          <Route path={Routes.postEditor} component={PostEditor} />
         </div>
       </div>
     </BrowserRouter>

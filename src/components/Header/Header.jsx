@@ -1,9 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LoginForm from 'components/LoginForm';
 import Routes from 'lib/routes';
 import styles from './Header.module.css';
-import LogoSvg from 'components/shared/SVG/logo';
 
 const NAVIGATION_BAR = [
   {
@@ -20,17 +20,14 @@ const NAVIGATION_BAR = [
   },
 ];
 
-const Header = () => (
+const renderHeader = () => (
   <header className={styles.root}>
     <div className={styles.container}>
       <h5 className={styles.logo}>
         <b>KPOGODIN</b> blog
       </h5>
-      <div>
-        <button>login</button>
-      </div>
+      <LoginForm />
     </div>
-    {/* <LogoSvg /> */}
     {/* <nav className={styles.navigation}>
       {NAVIGATION_BAR.map(elem => (
         <NavLink
@@ -44,8 +41,21 @@ const Header = () => (
         </NavLink>
       ))}
     </nav> */}
-    {/* <LoginForm /> */}
   </header>
 );
 
-export default Header;
+const Header = ({ loaded }) => loaded && renderHeader();
+
+const mapStateToProps = state => ({
+  loaded: state.blogReducer.loaded,
+});
+
+// MainContent.propTypes = {
+//   loaded: PropTypes.bool.isRequired,
+//   blogLoaded: PropTypes.func.isRequired,
+// };
+
+export default connect(
+  mapStateToProps,
+  {},
+)(Header);

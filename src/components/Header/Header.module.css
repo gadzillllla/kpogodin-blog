@@ -1,6 +1,7 @@
 @import '../shared/styles/vars.css';
 
 .root {
+  animation: slide-down 0.2s 1 linear;
   background-color: #444;
   height: 60px;
   width: 100%;
@@ -43,4 +44,14 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   margin-top: 25px;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-60px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

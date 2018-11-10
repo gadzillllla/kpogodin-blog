@@ -1,0 +1,8 @@
+@import '../styles/vars.css';
+
+.time {
+  color: grey;
+  font-size: 14px;
+  margin-right: 10px;
+  text-shadow: var(--small-shadow);
+}

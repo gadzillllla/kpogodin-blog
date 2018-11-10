@@ -3,6 +3,7 @@
 .root {
   animation: slide-up 0.4s ease-in-out;
   display: flex;
+  position: relative;
   width: 100%;
 }
 
@@ -20,11 +21,10 @@
 }
 
 .time {
-  color: rgb(143, 143, 143);
-  font-size: 10px;
+  color: grey;
+  font-size: 14px;
   height: 8px;
-  line-height: 7px;
-  margin-left: 11px;
+  margin-right: 10px;
 }
 
 .author {
@@ -47,6 +47,11 @@
 
 .top {
   align-items: center;
+  display: flex;
+}
+
+.bottom {
+  align-items: baseline;
   display: flex;
 }
 

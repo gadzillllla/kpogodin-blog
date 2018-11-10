@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
+import { Icon } from 'antd';
 import { connect } from 'react-redux';
 import { appDB, facebookProvider, googleProvider } from 'DBconfig/DB_CONFIG';
 import { userLogin, userLogout, adminMode } from 'actions/userActions';
 import PropTypes from 'prop-types';
+import Modal from 'react-responsive-modal';
 import styles from './LoginForm.module.css';
-import LoginButton from 'components/LoginButton';
-import SignUpForm from 'components/SignUpForm';
 import adminToken from 'DBconfig/DB_ADMIN_TOKEN';
-import Facebook from 'components/shared/SVG/facebook';
-import Google from 'components/shared/SVG/google';
 import Avatar from 'components/shared/Avatar';
 
 class LoginForm extends Component {
@@ -17,6 +15,8 @@ class LoginForm extends Component {
     super(props);
     this.state = {
       form: 'login',
+      modal: false,
+      error: '',
     };
   }
   componentDidMount() {
@@ -47,6 +47,24 @@ class LoginForm extends Component {
     });
   };
 
+  singUp = values => {
+    if (values.password === values.passwordConfirm) {
+      appDB
+        .auth()
+        .createUserWithEmailAndPassword(values.login, values.password)
+        .then()
+        .catch(error => {
+          this.setState({
+            error: error.message,
+          });
+          console.log(this.state.error);
+        });
+    } else
+      this.setState({
+        error: 'passwords not match',
+      });
+  };
+
   facebookLogin = () => {
     appDB.auth().signInWithPopup(facebookProvider);
   };
@@ -70,31 +88,26 @@ class LoginForm extends Component {
     });
   };
 
-  render() {
-    const { username, userPicUrl } = this.props;
-    const { form } = this.state;
-    if (username) {
-      return (
-        <div>
-          <p>{username}</p>
-          <Avatar userPicUrl={userPicUrl} />
-          <button type="button" onClick={this.logout} />
-        </div>
-      );
-    }
+  onOpenModal = () => {
+    this.setState({ modal: true });
+  };
 
-    if (form === 'signUp') {
-      return <SignUpForm back={this.toLogin} />;
-    }
+  onCloseModal = () => {
+    this.setState({ modal: false });
+  };
 
-    return (
-      <Form
-        onSubmit={this.onSubmit}
-        render={({ handleSubmit }) => (
-          <form className={styles.root} onSubmit={handleSubmit}>
-            <div className={styles.form}>
-              <Avatar userPicUrl={userPicUrl} />
+  renderLoginForm = () => (
+    <Form
+      onSubmit={this.onSubmit}
+      render={({ handleSubmit }) => (
+        <form className={styles.root} onSubmit={handleSubmit}>
+          <div className={styles.form}>
+            <div className={styles.row}>
+              <Icon className={styles.icon} type="user" theme="outlined" />
               <Field className={styles.input} name="login" component="input" type="text" placeholder="email" />
+            </div>
+            <div className={styles.row}>
+              <Icon className={styles.icon} type="lock" theme="outlined" />
               <Field
                 className={styles.input}
                 name="password"
@@ -102,20 +115,89 @@ class LoginForm extends Component {
                 type="password"
                 placeholder="password"
               />
-              <div className={styles.buttons}>
-                <button className={styles.signButton} type="button" onClick={this.toSignUp}>
-                  SIGN UP
-                </button>
-                <button className={styles.loginButton} type="submit">
-                  LOGIN
-                </button>
-              </div>
             </div>
-            <LoginButton svg={<Facebook />} type="Facebook" onClick={this.facebookLogin} />
-            <LoginButton svg={<Google />} type="Google" onClick={this.googleLogin} />
-          </form>
-        )}
-      />
+            <div className={styles.buttons}>
+              <button className={styles.secondButton} type="button" onClick={this.toSignUp}>
+                SIGN UP
+              </button>
+              <button className={styles.mainButton} type="submit">
+                LOGIN
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
+    />
+  );
+
+  renderSignUpForm = () => (
+    <Form
+      onSubmit={this.singUp}
+      render={({ handleSubmit }) => (
+        <form className={styles.root} onSubmit={handleSubmit}>
+          <div className={styles.row}>
+            <Icon className={styles.icon} type="user" theme="outlined" />
+            <Field className={styles.input} name="login" component="input" type="text" placeholder="login" />
+          </div>
+          <div className={styles.row}>
+            <Icon className={styles.icon} type="lock" theme="outlined" />
+            <Field className={styles.input} name="password" component="input" type="password" placeholder="password" />
+          </div>
+          <div className={styles.row}>
+            <Icon className={styles.icon} type="lock" theme="outlined" />
+            <Field
+              className={styles.input}
+              name="passwordConfirm"
+              component="input"
+              type="password"
+              placeholder="confirm password"
+            />
+          </div>
+          <div className={styles.buttons}>
+            <button className={styles.secondButton} type="button" onClick={this.toLogin}>
+              BACK
+            </button>
+            <button className={styles.mainButton} type="submit">
+              CONFIRM
+            </button>
+          </div>
+          <p>{this.state.error}</p>
+        </form>
+      )}
+    />
+  );
+
+  renderContent = () => {
+    return this.state.form === 'signUp' ? this.renderSignUpForm() : this.renderLoginForm();
+  };
+
+  render() {
+    const { username, userPicUrl } = this.props;
+    const { modal } = this.state;
+    if (username) {
+      return (
+        <div className={styles.userInfo}>
+          <span className={styles.username}> {username} </span>
+          <Icon className={styles.button} onClick={this.logout} type="logout" theme="outlined" />
+        </div>
+      );
+    }
+    return (
+      <div>
+        <Modal
+          open={modal}
+          classNames={{
+            overlay: styles.customOverlay,
+            modal: styles.customModal,
+          }}
+          onClose={this.onCloseModal}
+        >
+          {this.renderContent()}
+        </Modal>
+        <Icon className={styles.button} onClick={this.onOpenModal} type="login" theme="outlined" />
+        <Icon className={styles.button} type="google" onClick={this.googleLogin} theme="outlined" />
+        <Icon type="facebook" onClick={this.facebookLogin} theme="outlined" className={styles.button} />
+      </div>
     );
   }
 }

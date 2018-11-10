@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Icon } from 'antd';
+import { Link } from 'react-router-dom';
 import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
+import Routes from 'lib/routes';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
 import AddPostForm from 'components/AddPostForm';
 import { sortObjByKey } from 'lib/utils';
 import { withRouter } from 'react-router';
 import styles from './MainContent.module.css';
+import PostEditor from 'components/PostEditor';
 
 class MainContent extends Component {
   state = {
@@ -48,6 +52,13 @@ class MainContent extends Component {
     });
   }
 
+  renderEditorLink = () =>
+    this.props.admin && (
+      <Link to={Routes.postEditor} className={styles.addContainer}>
+        <Icon className={styles.addIcon} type="plus-circle" /> <h1>ADD POST</h1>
+      </Link>
+    );
+
   render() {
     const { posts } = this.state;
     const { loaded, match, location, history } = this.props;
@@ -58,8 +69,9 @@ class MainContent extends Component {
     return (
       <div className={styles.root}>
         <h1 className={styles.pageTitle}>KPOGODIN</h1>
+        <PostEditor submit={this} />
         <div className={styles.content}>
-          <AddPostForm />
+          {this.renderEditorLink()}
           {sortObjByKey(posts.slice(), 'time').map(elem => (
             <Post
               title={elem.title}
@@ -78,6 +90,7 @@ class MainContent extends Component {
 
 const mapStateToProps = state => ({
   loaded: state.blogReducer.loaded,
+  admin: state.userReducer.admin,
 });
 
 MainContent.propTypes = {

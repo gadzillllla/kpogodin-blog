@@ -21,4 +21,33 @@
 .content {
   background-color: #444;
   padding-top: 100px;
+  position: relative;
+}
+
+.addIcon svg {
+  font-size: 50px;
+  margin-right: 15px;
+  text-shadow: var(--small-shadow);
+  transition: 0.1s ease-out;
+}
+
+.addContainer {
+  align-items: center;
+  color: grey;
+  display: flex;
+  left: 42px;
+  position: absolute;
+  text-decoration: none;
+  top: 60px;
+}
+
+.addContainer h1 {
+  color: grey;
+  transition: 0.1s ease-out;
+}
+
+.addContainer:hover h1,
+.addContainer:hover .addIcon svg {
+  color: white;
+  transition: 0.1s ease-out;
 }

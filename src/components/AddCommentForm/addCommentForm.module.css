@@ -1,17 +1,14 @@
 .root {
-  align-items: space-between;
+  align-items: flex-start;
   display: flex;
   height: 50px;
-  margin-top: 20px;
+  justify-content: flex-start;
   padding: 0;
-  width: 90%;
+  width: 85%;
 }
 
 .form {
-  align-items: space-between;
   display: flex;
-  height: 50px;
-  padding: 0;
   width: 100%;
 }
 
@@ -26,7 +23,7 @@
   outline: none;
   padding: 0 0 0 20px;
   resize: none;
-  width: 100%;
+  width: 75%;
 }
 
 .btn {
@@ -44,5 +41,10 @@
 }
 
 .btn:hover {
-  transform: scale(1.15, 1.15);
+  filter: brightness(1.2);
+  transform: scale(1.05, 1.05);
+}
+
+.tip {
+  color: grey;
 }

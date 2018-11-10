@@ -2,10 +2,10 @@
   --BLUE: #007abb;
   --RED: #d20000;
   --WHITE: white;
-  --DARK: #374249;
+  --DARK: #444;
   --LIGHT-GREY: #4f5358;
   --disabled: rgb(167, 166, 166);
-  --main-color: var(--RED);
+  --main-color: #d8342e;
   --main-dark: #bfbfbf;
   --main-dark-op: #565656;
   --main-white: #fff;

@@ -7,7 +7,7 @@
 }
 
 .top {
-  align-items: center;
+  align-items: baseline;
   display: flex;
 }
 
@@ -18,21 +18,25 @@
 
 .title {
   color: white;
-  margin: 30px 0;
+  margin: 30px 20px 30px 0;
 }
 
 .bottom {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin-top: 50px;
 }
 
-.time {
-  color: rgb(143, 143, 143);
-  font-size: 12px;
-  height: 8px;
-  line-height: 12px;
-  margin-left: 30px;
+img {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+iframe {
+  height: 480px;
+  margin: 0 auto;
+  width: 854px;
 }
 
 @keyframes slide-up {

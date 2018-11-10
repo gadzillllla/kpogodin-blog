@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import styles from './Post.module.css';
 import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
 import { connect } from 'react-redux';
-import timeago from 'timeago.js';
 import AddCommentForm from 'components/AddCommentForm';
 import LikesCounter from 'components/LikesCounter';
 import Comment from 'components/shared/Comment';
+import TimeAgo from 'components/shared/TimeAgo';
 import DeleteButton from 'components/shared/DeleteButton';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { sortObjByKey } from 'lib/utils';
 
 class Post extends Component {
@@ -55,10 +56,6 @@ class Post extends Component {
       });
   }
 
-  getTimeAgo = () => {
-    return timeago().format(this.props.time);
-  };
-
   handleRemovePost = () => {
     console.log(this.props.postId);
     databasePosts.child(this.props.postId).remove();
@@ -67,23 +64,20 @@ class Post extends Component {
   render() {
     const { text, title, postId, time, userPicUrl } = this.props;
     const { comments, likes } = this.state;
-
     return (
       <div className={styles.root}>
         <div className={styles.post}>
           <div className={styles.top}>
             <h3 className={styles.title}>{title} </h3>
-            <span className={styles.time}>{this.getTimeAgo()}</span>
+            <TimeAgo time={time} />
+            <DeleteButton deleteItem={this.handleRemovePost} />
           </div>
-          <DeleteButton deleteItem={this.handleRemovePost} />
-
-          <p className={styles.txt}>{text} </p>
+          {ReactHtmlParser(text)}
           <div className={styles.bottom}>
             <AddCommentForm id={postId} />
             <LikesCounter count={likes.length} postId={postId} likesList={likes} />
           </div>
         </div>
-
         {sortObjByKey(comments.slice(), 'time').map(elem => (
           <Comment
             userPicUrl={elem.userPicUrl}

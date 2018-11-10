@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
+import { Icon } from 'antd';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
-import CurrentAvatar from 'components/shared/CurrentAvatar';
+import Avatar from 'components/shared/CurrentAvatar';
 import styles from './addCommentForm.module.css';
 
 class AddCommentForm extends Component {
@@ -37,10 +38,11 @@ class AddCommentForm extends Component {
     return errors;
   };
 
-  render() {
+  renderForm = () => {
+    const { userPicUrl } = this.props;
     return (
-      <div className={styles.root}>
-        <CurrentAvatar />
+      <Fragment>
+        <Avatar userPicUrl={userPicUrl} size="50px" />
         <Form
           onSubmit={this.addComment}
           validate={this.validate}
@@ -54,13 +56,26 @@ class AddCommentForm extends Component {
                 placeholder="Add a Comment..."
               />
               <button className={styles.btn} type="submit" disabled={invalid}>
-                submit
+                ADD COMMENT
               </button>
             </form>
           )}
         />
-      </div>
+      </Fragment>
     );
+  };
+
+  renderContent = () =>
+    this.props.logged ? (
+      this.renderForm()
+    ) : (
+      <p className={styles.tip}>
+        <Icon type="exclamation-circle" theme="outlined" /> Чтобы оставлять комментарии и лайки, нужно авторизоваться
+      </p>
+    );
+
+  render() {
+    return <div className={styles.root}>{this.renderContent()}</div>;
   }
 }
 
@@ -68,6 +83,7 @@ const mapStateToProps = state => ({
   username: state.userReducer.username,
   uid: state.userReducer.userUid,
   userPicUrl: state.userReducer.userPicUrl,
+  logged: state.userReducer.logged,
 });
 
 // LoginForm.propTypes = {

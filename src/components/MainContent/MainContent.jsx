@@ -69,7 +69,6 @@ class MainContent extends Component {
     return (
       <div className={styles.root}>
         <h1 className={styles.pageTitle}>KPOGODIN</h1>
-        <PostEditor submit={this} />
         <div className={styles.content}>
           {this.renderEditorLink()}
           {sortObjByKey(posts.slice(), 'time').map(elem => (

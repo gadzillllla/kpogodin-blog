@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Form, Field } from 'react-final-form';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
 import styles from './PostEditor.module.css';
-import 'react-quill/dist/quill.snow.css';
+import './test.css';
 
 class PostEditor extends Component {
   constructor(props) {
@@ -59,17 +59,15 @@ class PostEditor extends Component {
         onSubmit={this.addPost}
         render={({ handleSubmit, invalid }) => (
           <form className={styles.root} onSubmit={handleSubmit}>
-            <div className={styles.row}>
-              <Field className={styles.title} name="title" component="input" type="text" placeholder="Заголовок" />
-              <ReactQuill
-                theme="snow"
-                value={this.state.text}
-                modules={this.modules}
-                formats={this.formats}
-                onChange={this.handleChange}
-              />
-            </div>
-            <button className={styles.btn} type="submit">
+            <Field className={styles.title} name="title" component="input" type="text" placeholder="Заголовок" />
+            <ReactQuill
+              theme="snow"
+              value={this.state.text}
+              modules={this.modules}
+              formats={this.formats}
+              onChange={this.handleChange}
+            />
+            <button className={styles.mainButton} type="submit">
               отправить
             </button>
           </form>

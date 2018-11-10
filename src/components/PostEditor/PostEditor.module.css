@@ -1,20 +1,17 @@
 .root {
-  background: white;
+  background-color: #444;
   border-radius: 5px;
   display: flex;
-  padding: 20px;
-}
-
-.row {
-  display: flex;
   flex-direction: column;
-  width: 80%;
+  margin-top: 100px;
+  padding: 20px;
+  width: 80vmin;
 }
 
 .title {
   background: none;
   border: none;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
   color: white;
   height: 25px;
   margin-bottom: 10px;
@@ -28,7 +25,21 @@
   height: 25px;
 }
 
-.btn {
+.mainButton {
+  align-self: right;
   background: none;
-  margin-left: 10px;
+  border: 2px solid white;
+  color: white;
+  line-height: 0;
+  margin-top: 50px;
+  padding: 18px;
+  transition: 0.1s ease-in-out;
+  width: 200px;
+}
+
+.mainButton:hover {
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
+  text-shadow: var(--small-shadow);
+  transform: scale(1.05, 1.05);
 }

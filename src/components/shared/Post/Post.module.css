@@ -3,7 +3,6 @@
 .root {
   border-top: 1px solid rgb(29, 29, 29);
   margin: 50px;
-  padding: 10px;
 }
 
 .top {
@@ -12,8 +11,13 @@
 }
 
 .post {
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   position: relative;
+}
+
+.post img {
+  max-height: 50%;
+  max-width: 50%;
 }
 
 .title {
@@ -25,12 +29,7 @@
   align-items: center;
   display: flex;
   justify-content: flex-start;
-  margin-top: 50px;
-}
-
-img {
-  max-height: 300px;
-  max-width: 300px;
+  margin: 20px 0;
 }
 
 iframe {
@@ -48,5 +47,16 @@ iframe {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .root {
+    margin: 50px 20px;
+  }
+
+  .post img {
+    max-height: 100%;
+    max-width: 100%;
   }
 }

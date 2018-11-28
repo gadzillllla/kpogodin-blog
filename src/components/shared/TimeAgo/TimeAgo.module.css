@@ -4,5 +4,6 @@
   color: grey;
   font-size: 14px;
   margin-right: 10px;
+  margin-top: 15px;
   text-shadow: var(--small-shadow);
 }

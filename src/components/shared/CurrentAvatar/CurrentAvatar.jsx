@@ -6,7 +6,17 @@ const defaultAvatarUrl =
 
 const CurrentAvatar = ({ userPicUrl, logged }) => {
   let url = userPicUrl === 'default' || !userPicUrl ? defaultAvatarUrl : userPicUrl;
-  return <img className={styles.root} src={url} alt="avatar" />;
+  return (
+    <img
+      style={{
+        width: '50px',
+        height: '50px',
+      }}
+      className={styles.root}
+      src={url}
+      alt="avatar"
+    />
+  );
 };
 
 export default CurrentAvatar;

@@ -5,6 +5,7 @@ import { Icon } from 'antd';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
 import Avatar from 'components/shared/CurrentAvatar';
 import styles from './addCommentForm.module.css';
+import { divide } from 'ramda';
 
 class AddCommentForm extends Component {
   constructor(props) {
@@ -42,7 +43,9 @@ class AddCommentForm extends Component {
     const { userPicUrl } = this.props;
     return (
       <Fragment>
-        <Avatar userPicUrl={userPicUrl} size="50px" />
+        <div className={styles.ava}>
+          <Avatar userPicUrl={userPicUrl} size="50px" />
+        </div>
         <Form
           onSubmit={this.addComment}
           validate={this.validate}
@@ -56,7 +59,7 @@ class AddCommentForm extends Component {
                 placeholder="Add a Comment..."
               />
               <button className={styles.btn} type="submit" disabled={invalid}>
-                ADD COMMENT
+                ADD
               </button>
             </form>
           )}

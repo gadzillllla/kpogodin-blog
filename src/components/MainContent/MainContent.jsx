@@ -20,6 +20,8 @@ class MainContent extends Component {
   };
 
   componentDidMount() {
+    const { editorAvailable, location } = this.props;
+    console.log('head', location.pathname);
     const { posts } = this.state;
     const { blogLoaded } = this.props;
     const previousPosts = posts;
@@ -55,7 +57,7 @@ class MainContent extends Component {
   renderEditorLink = () =>
     this.props.admin && (
       <Link to={Routes.postEditor} className={styles.addContainer}>
-        <Icon className={styles.addIcon} type="plus-circle" /> <h1>ADD POST</h1>
+        <Icon className={styles.addIcon} type="plus-circle" />
       </Link>
     );
 

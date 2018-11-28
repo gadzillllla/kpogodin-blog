@@ -26,17 +26,11 @@
 
 .link {
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   height: 70px;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
   width: 100px;
-}
-
-.link:hover {
-  background: white;
-  color: black;
 }
 
 .logo {
@@ -55,3 +49,15 @@
     transform: translateY(0);
   }
 }
+
+@media only screen and (max-width: 1280px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/* @media only screen and (max-width: 1024px) {
+  .container h5 {
+    display: none;
+  }
+} */

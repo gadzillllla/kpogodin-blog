@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "antd": "^3.10.3",
+    "bowser": "^1.9.0",
     "classnames": "^2.2.6",
     "draft-convert": "^2.1.4",
     "draft-js-dnd-plugin": "^2.0.0-beta1",
     "draftjs-to-html": "^0.8.4",
     "draftjs-to-markdown": "^0.5.1",
-    "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-import": "^2.14.0",
@@ -59,7 +59,6 @@
   "devDependencies": {
     "babel-eslint": "^8.2.5",
     "classnames": "^2.2.6",
-    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.13.0",

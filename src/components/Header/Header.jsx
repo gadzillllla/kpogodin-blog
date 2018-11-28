@@ -24,7 +24,9 @@ const renderHeader = () => (
   <header className={styles.root}>
     <div className={styles.container}>
       <h5 className={styles.logo}>
-        <b>KPOGODIN</b> blog
+        <NavLink className={styles.link} to="/">
+          <b>KPOGODIN</b> blog
+        </NavLink>
       </h5>
       <LoginForm />
     </div>

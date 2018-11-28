@@ -3,6 +3,4 @@
 .root {
   border-radius: 5px;
   box-shadow: var(--small-shadow);
-  height: 50px;
-  width: 50px;
 }

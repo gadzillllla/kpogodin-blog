@@ -1090,6 +1090,7 @@
 }
 
 .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  background-color: #444;
   border-color: #ccc;
 }
 

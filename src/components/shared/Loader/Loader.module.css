@@ -1,12 +1,12 @@
 .container {
   align-items: center;
   display: flex;
-  margin-top: 100%;
+  margin: 40% auto;
+  width: 44%;
 }
 
 .container h1 {
   font-size: 68px;
-  margin: 0 auto;
   text-align: unset;
   white-space: nowrap;
 }

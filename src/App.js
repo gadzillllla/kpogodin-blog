@@ -8,6 +8,7 @@ import About from './components/About';
 import Routes from './lib/routes';
 import Video from './components/Video';
 import PostEditor from './components/PostEditor/';
+import cn from 'classnames';
 import './App.css';
 
 /* eslint-disable */
@@ -15,7 +16,7 @@ import './App.css';
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
-      <div className="App">
+      <div className={App}>
         <Header />
         <div className="content">
           <Route exact path={Routes.rootPath} component={MainContent} />

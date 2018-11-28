@@ -19,6 +19,11 @@ export const databasePosts = appDB
   .ref()
   .child('posts');
 
+export const databaseAutosave = appDB
+  .database()
+  .ref()
+  .child('autosave');
+
 export const storage = firebase.storage();
 
 // const id = '-LFJx46jPOaLVDGaC';

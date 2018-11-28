@@ -73,10 +73,10 @@ class Post extends Component {
             <DeleteButton deleteItem={this.handleRemovePost} />
           </div>
           {ReactHtmlParser(text)}
-          <div className={styles.bottom}>
-            <AddCommentForm id={postId} />
-            <LikesCounter count={likes.length} postId={postId} likesList={likes} />
-          </div>
+        </div>
+        <div className={styles.bottom}>
+          <AddCommentForm id={postId} />
+          <LikesCounter count={likes.length} postId={postId} likesList={likes} />
         </div>
         {sortObjByKey(comments.slice(), 'time').map(elem => (
           <Comment

@@ -44,6 +44,7 @@ class PostEditor extends Component {
     let date = new Date().getTime();
     databasePosts.push().set({
       title: value.title || '',
+      tags: value.tags || '',
       txt: this.state.text || '',
       time: date,
     });
@@ -97,6 +98,13 @@ class PostEditor extends Component {
           render={({ handleSubmit, invalid }) => (
             <form className={styles.root} onSubmit={handleSubmit}>
               <Field className={styles.title} name="title" component="input" type="text" placeholder="Заголовок" />
+              <Field
+                className={styles.title}
+                name="tags"
+                component="input"
+                type="text"
+                placeholder="теги, через запятую!"
+              />
               <ReactQuill
                 theme="snow"
                 value={this.state.text}

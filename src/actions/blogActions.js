@@ -14,3 +14,7 @@ export function editorOn() {
 export function editorOff() {
   return { type: actionTypes.EDITOR_OFF };
 }
+
+export function changeTag(payload) {
+  return { type: actionTypes.CHANGE_TAG, payload };
+}

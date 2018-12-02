@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'antd';
 import { Link } from 'react-router-dom';
-import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
+import { databasePosts } from 'DBconfig/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
 import Routes from 'lib/routes';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
-import AddPostForm from 'components/AddPostForm';
-import { sortObjByKey } from 'lib/utils';
+import { sortObjByKey, filterPostByTags, stringToTags } from 'lib/utils';
 import { withRouter } from 'react-router';
 import styles from './MainContent.module.css';
-import PostEditor from 'components/PostEditor';
 
 class MainContent extends Component {
   state = {
@@ -20,7 +18,7 @@ class MainContent extends Component {
   };
 
   componentDidMount() {
-    const { editorAvailable, location } = this.props;
+    const { location } = this.props;
     console.log('head', location.pathname);
     const { posts } = this.state;
     const { blogLoaded } = this.props;
@@ -31,6 +29,7 @@ class MainContent extends Component {
         txt: snap.val().txt,
         title: snap.val().title,
         time: snap.val().time,
+        tags: snap.val().tags,
       });
       this.setState(
         {
@@ -63,23 +62,23 @@ class MainContent extends Component {
 
   render() {
     const { posts } = this.state;
-    const { loaded, match, location, history } = this.props;
+    const { loaded, match, location, history, selectedTag } = this.props;
     console.log(match, location, history);
     if (!loaded) {
       return <Loader />;
     }
     return (
       <div className={styles.root}>
-        <h1 className={styles.pageTitle}>KPOGODIN</h1>
         <div className={styles.content}>
           {this.renderEditorLink()}
-          {sortObjByKey(posts.slice(), 'time').map(elem => (
+          {filterPostByTags(sortObjByKey(posts.slice(), 'time'), selectedTag).map(elem => (
             <Post
               title={elem.title}
               text={elem.txt}
               key={elem.id}
               postId={elem.id}
               time={elem.time}
+              tags={stringToTags(elem.tags)}
               comments={elem.comments}
             />
           ))}
@@ -91,6 +90,7 @@ class MainContent extends Component {
 
 const mapStateToProps = state => ({
   loaded: state.blogReducer.loaded,
+  selectedTag: state.blogReducer.tag,
   admin: state.userReducer.admin,
 });
 

@@ -5,13 +5,11 @@ import store from './store';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import About from './components/About';
+import TopTitle from './components/TopTitle';
 import Routes from './lib/routes';
 import Video from './components/Video';
 import PostEditor from './components/PostEditor/';
-import cn from 'classnames';
 import './App.css';
-
-/* eslint-disable */
 
 const App = () => (
   <Provider store={store}>
@@ -19,6 +17,7 @@ const App = () => (
       <div className={App}>
         <Header />
         <div className="content">
+          <TopTitle />
           <Route exact path={Routes.rootPath} component={MainContent} />
           <Route path={Routes.aboutPath} component={About} />
           <Route path={Routes.videoPath} component={Video} />

@@ -1,0 +1,23 @@
+.root {
+  height: 250px;
+}
+
+.pageTitle {
+  font-size: 70px;
+  margin-bottom: 0;
+  padding-top: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.sub {
+  color: white;
+  margin: 0 5px;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tag:hover {
+  text-decoration: line-through;
+}

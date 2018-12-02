@@ -38,6 +38,10 @@ iframe {
   width: 854px;
 }
 
+.tags {
+  margin-right: 10px;
+}
+
 @keyframes slide-up {
   0% {
     opacity: 0;

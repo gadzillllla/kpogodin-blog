@@ -6,8 +6,9 @@ import AddCommentForm from 'components/AddCommentForm';
 import LikesCounter from 'components/LikesCounter';
 import Comment from 'components/shared/Comment';
 import TimeAgo from 'components/shared/TimeAgo';
+import Tag from 'components/shared/Tag';
 import DeleteButton from 'components/shared/DeleteButton';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 import { sortObjByKey } from 'lib/utils';
 
 class Post extends Component {
@@ -57,8 +58,17 @@ class Post extends Component {
   }
 
   handleRemovePost = () => {
-    console.log(this.props.postId);
     databasePosts.child(this.props.postId).remove();
+  };
+
+  renderTags = () => {
+    return (
+      <div className={styles.tags}>
+        {this.props.tags.map(elem => (
+          <Tag tag={elem} />
+        ))}
+      </div>
+    );
   };
 
   render() {
@@ -69,6 +79,7 @@ class Post extends Component {
         <div className={styles.post}>
           <div className={styles.top}>
             <h3 className={styles.title}>{title} </h3>
+            {this.renderTags()}
             <TimeAgo time={time} />
             <DeleteButton deleteItem={this.handleRemovePost} />
           </div>

@@ -3,9 +3,7 @@
 
 body {
   background-attachment: fixed;
-
-  /* background-color: #f03d36; */
-  background-image: linear-gradient(to right, #fd5e59, #d8342e, #f15f5a);
+  background-color: #f03d36;
   font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   margin: 0;

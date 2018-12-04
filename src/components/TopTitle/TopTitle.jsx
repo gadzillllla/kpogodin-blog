@@ -34,7 +34,7 @@ const TopTitle = props => {
       case Routes.aboutPath:
         return 'me, patchnotes, todo, links';
       default:
-        return 'BLOG';
+        return '';
     }
   };
 

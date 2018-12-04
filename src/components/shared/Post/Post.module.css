@@ -3,6 +3,7 @@
 .root {
   border-top: 1px solid rgb(29, 29, 29);
   margin: 50px;
+  padding-bottom: 5px;
 }
 
 .top {
@@ -22,7 +23,7 @@
 
 .title {
   color: white;
-  margin: 30px 20px 30px 0;
+  margin: 30px 20px 5px 0;
 }
 
 .bottom {
@@ -39,7 +40,7 @@ iframe {
 }
 
 .tags {
-  margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 @keyframes slide-up {

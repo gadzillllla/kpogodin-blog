@@ -9,7 +9,6 @@ import { Form, Field } from 'react-final-form';
 import { databasePosts, databaseAutosave } from 'DBconfig/DB_CONFIG';
 import styles from './PostEditor.module.css';
 import './test.css';
-import { compose } from 'redux';
 
 class PostEditor extends Component {
   constructor(props) {
@@ -91,7 +90,7 @@ class PostEditor extends Component {
     const { admin } = this.props;
     if (!admin) return <Redirect to="/" />;
     return (
-      <div>
+      <div className={styles.container}>
         <Form
           onSubmit={this.addPost}
           // validate={this.validate}
@@ -112,13 +111,16 @@ class PostEditor extends Component {
                 formats={this.formats}
                 onChange={this.handleChange}
               />
+
               <button className={styles.mainButton} disabled={invalid} type="submit">
-                POST
+                PUBLISH
               </button>
             </form>
           )}
         />
-        <Icon type="save" onClick={this.save} />
+        <button className={styles.mainButton} onClick={this.save}>
+          SAVE
+        </button>
       </div>
     );
   }

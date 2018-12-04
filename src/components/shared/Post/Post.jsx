@@ -79,10 +79,11 @@ class Post extends Component {
         <div className={styles.post}>
           <div className={styles.top}>
             <h3 className={styles.title}>{title} </h3>
-            {this.renderTags()}
+
             <TimeAgo time={time} />
             <DeleteButton deleteItem={this.handleRemovePost} />
           </div>
+          {this.renderTags()}
           {ReactHtmlParser(text)}
         </div>
         <div className={styles.bottom}>

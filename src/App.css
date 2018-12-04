@@ -45,7 +45,8 @@ h5 {
   margin-top: 0;
 }
 
-p {
+p,
+li {
   color: rgb(255, 254, 254);
   font-size: 16px;
   margin: 0 0 15px 0;

@@ -5,21 +5,6 @@ import LoginForm from 'components/LoginForm';
 import Routes from 'lib/routes';
 import styles from './Header.module.css';
 
-const NAVIGATION_BAR = [
-  {
-    label: 'blog',
-    link: Routes.rootPath,
-  },
-  {
-    label: 'video',
-    link: Routes.videoPath,
-  },
-  {
-    label: 'about',
-    link: Routes.aboutPath,
-  },
-];
-
 const renderHeader = () => (
   <header className={styles.root}>
     <div className={styles.container}>
@@ -30,19 +15,6 @@ const renderHeader = () => (
       </h5>
       <LoginForm />
     </div>
-    {/* <nav className={styles.navigation}>
-      {NAVIGATION_BAR.map(elem => (
-        <NavLink
-          exact
-          key={elem.link}
-          activeStyle={{ color: 'black', background: 'white' }}
-          className={styles.link}
-          to={elem.link}
-        >
-          <p>{elem.label}</p>
-        </NavLink>
-      ))}
-    </nav> */}
   </header>
 );
 

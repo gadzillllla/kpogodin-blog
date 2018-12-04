@@ -19,7 +19,6 @@ class MainContent extends Component {
 
   componentDidMount() {
     const { location } = this.props;
-    console.log('head', location.pathname);
     const { posts } = this.state;
     const { blogLoaded } = this.props;
     const previousPosts = posts;
@@ -37,7 +36,6 @@ class MainContent extends Component {
         },
         blogLoaded,
       );
-      console.log('posts', posts);
     });
 
     databasePosts.on('child_removed', snap => {
@@ -63,7 +61,6 @@ class MainContent extends Component {
   render() {
     const { posts } = this.state;
     const { loaded, match, location, history, selectedTag } = this.props;
-    console.log(match, location, history);
     if (!loaded) {
       return <Loader />;
     }

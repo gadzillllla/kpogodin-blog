@@ -1,4 +1,26 @@
 .root {
-    background-color: grey;
-    margin: 10px;
+  background-color: #444;
+  padding: 50px;
+}
+
+.info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ava {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.block {
+  margin-top: 20px;
+}
+
+.footer {
+  display: flex;
+  height: 200px;
+  justify-content: space-between;
 }

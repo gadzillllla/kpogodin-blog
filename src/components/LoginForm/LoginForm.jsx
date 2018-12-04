@@ -21,14 +21,12 @@ class LoginForm extends Component {
   }
   componentDidMount() {
     this.authListener();
-    console.log(this.state.userPicUrl);
   }
 
   authListener = () => {
     const { userLogin, userLogout, adminMode } = this.props;
     appDB.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log('user', user);
         const shortEmail = String(user.email).split('@')[0];
         user.displayName
           ? userLogin(user)
@@ -57,7 +55,6 @@ class LoginForm extends Component {
           this.setState({
             error: error.message,
           });
-          console.log(this.state.error);
         });
     } else
       this.setState({

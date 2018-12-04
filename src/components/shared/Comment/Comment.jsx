@@ -13,7 +13,6 @@ class Comment extends Component {
   componentWillMount() {}
 
   handleRemovePost = () => {
-    console.log(this.props.id);
     databasePosts
       .child(`${this.props.postId}`)
       .child('comments')
@@ -23,7 +22,6 @@ class Comment extends Component {
 
   render() {
     const { id, txt, author, authorUid, userPicUrl, time } = this.props;
-    console.log(userPicUrl);
     return (
       <div className={styles.root} key={id}>
         <div className={styles.avatar}>

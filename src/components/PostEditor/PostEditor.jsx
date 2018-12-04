@@ -3,7 +3,6 @@ import ReactQuill from 'react-quill';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Icon } from 'antd';
 import { editorOn, editorOff } from 'actions/blogActions';
 import { Form, Field } from 'react-final-form';
 import { databasePosts, databaseAutosave } from 'DBconfig/DB_CONFIG';
@@ -32,10 +31,7 @@ class PostEditor extends Component {
       databaseAutosave.set({
         txt: this.state.text,
       });
-      console.log('save');
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   addPost = value => {
@@ -119,7 +115,7 @@ class PostEditor extends Component {
           )}
         />
         <button className={styles.mainButton} onClick={this.save}>
-          SAVE
+          SAVE DRAFT
         </button>
       </div>
     );

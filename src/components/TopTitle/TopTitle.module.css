@@ -1,5 +1,6 @@
 .root {
   height: 250px;
+  position: relative;
 }
 
 .pageTitle {
@@ -20,4 +21,27 @@
 
 .tag:hover {
   text-decoration: line-through;
+}
+
+.nav {
+  bottom: 5px;
+  display: flex;
+  left: 0;
+  position: absolute;
+}
+
+.link {
+  color: rgb(224, 224, 224);
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: white;
+}
+
+@media only screen and (max-width: 1024px) {
+  .nav {
+    margin-left: 15px;
+  }
 }

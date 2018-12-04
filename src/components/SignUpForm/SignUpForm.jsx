@@ -26,7 +26,6 @@ class SignUpForm extends Component {
           this.setState({
             error: error.message,
           });
-          console.log(this.state.error);
         });
     } else
       this.setState({

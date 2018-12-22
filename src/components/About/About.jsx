@@ -1,12 +1,43 @@
 import React from 'react';
 import styles from './About.module.css';
 import Checkbox from 'components/ToDoCheckbox';
+import { Icon } from 'antd';
+
+const Telegram = () => (
+  <svg width="25" height="25" viewBox="0 0 512 420">
+    <path
+      fill="white"
+      d="m121.453125 253.171875 63.554687 158.886719 82.75-82.753906 141.535157 112.503906 102.707031-441.308594-512 205.480469zm-39.933594-47.640625 244.046875-97.945312-194.074218 117.363281zm287.535157-89.25-161.980469 148.1875-19.484375 73.425781-36.035156-90.085937zm-149.851563 219.230469 9.816406-36.996094 15.144531 12.035156zm171.65625 53.394531-147.386719-117.152344 221.902344-203.007812zm0 0"
+    />
+  </svg>
+);
 
 const About = () => (
   <div className={styles.root}>
     <div className={styles.info}>
-      <img className={styles.ava} src="https://avatars1.githubusercontent.com/u/37631833?s=460&v=4" />
-      <h1>Костя Погодин</h1>
+      <header>
+        <div className={styles.center}>
+          <img className={styles.ava} src="https://avatars1.githubusercontent.com/u/37631833?s=460&v=4" />
+          <h1>Костя Погодин</h1>
+        </div>
+        <div className={styles.links}>
+          <a href="https://www.instagram.com/kpogodin_/">
+            <Icon style={{ color: 'white', fontSize: '25px' }} type="instagram" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCT_IoHUWKvy5FjDVm0Ee0ug">
+            <Icon style={{ color: 'white', fontSize: '25px' }} type="youtube" />
+          </a>
+          <a href="https://t.me/kpogodin">
+            <Icon style={{ color: 'white', fontSize: '25px' }} component={Telegram} />
+          </a>
+          <a href="https://github.com/gadzillllla">
+            <Icon style={{ color: 'white', fontSize: '25px' }} type="github" />
+          </a>
+          <a href="https://twitter.com/GadziLLLLLa">
+            <Icon style={{ color: 'white', fontSize: '25px' }} type="twitter" />
+          </a>
+        </div>
+      </header>
       <p>
         Всем Привет! Меня зовут Костя и я forontend-разработчик. Делаю сайтики на ReactJS с мая 2018 года. Это мой
         личный блог, но я его больше програмирую и добавляю фичи, чем наполняю контентом. Блогер из меня так себе, но я
@@ -35,14 +66,14 @@ const About = () => (
       <Checkbox disabled label={'Лайки к комментариям и сортировка их по популярности'} />
       <Checkbox disabled label={'Сортировка постов по популярности'} />
       <Checkbox disabled label={'смена темы: ночная/дневная'} />
+      <Checkbox disabled label={'просмотр изображений по клику'} />
       <Checkbox disabled label={'интерактивная страница about для админа, это вот все щас захардкожено =('} />
+      <Checkbox disabled label={'новый, блять, дизайн ВСЕГО =)'} />
     </div>
     <footer className={styles.footer}>
-      {/* <div>contacts</div>
-      <img
-        style={{ width: '50px', height: '50px' }}
-      />
-      <div>build on</div> */}
+      <p>
+        build on <a href="https://reactjs.org/">reactJS</a> + <a href="https://firebase.google.com/">firebase</a>
+      </p>
     </footer>
   </div>
 );

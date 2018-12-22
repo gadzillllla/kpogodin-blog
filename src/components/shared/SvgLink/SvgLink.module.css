@@ -1,0 +1,18 @@
+@import '../styles/vars.css';
+
+.tag {
+  background-color: #099182;
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--small-shadow);
+  color: white;
+  margin: 0 5px 5px 0;
+  outline: none;
+  padding: 5px;
+  text-transform: uppercase;
+  transition: 0.1s ease-in;
+}
+
+.tag:hover {
+  background-color: #0fc0ab;
+}

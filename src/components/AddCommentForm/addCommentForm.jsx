@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
-import { Icon } from 'antd';
+import { Icon, Button } from 'antd';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
 import Avatar from 'components/shared/CurrentAvatar';
 import styles from './addCommentForm.module.css';
@@ -64,6 +64,7 @@ class AddCommentForm extends Component {
             </form>
           )}
         />
+        <Button type="primary">Primary</Button>
       </Fragment>
     );
   };

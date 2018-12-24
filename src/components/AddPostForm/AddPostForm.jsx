@@ -5,6 +5,7 @@ import { databasePosts } from 'DBconfig/DB_CONFIG';
 import { userLogin, userLogout } from 'actions/userActions';
 import PropTypes from 'prop-types';
 import styles from './AddPostForm.module.css';
+import { Button } from 'antd';
 
 const addPost = values => {
   let date = new Date().getTime();

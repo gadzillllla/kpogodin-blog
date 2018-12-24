@@ -10,6 +10,7 @@ import Routes from './lib/routes';
 import Video from './components/Video';
 import PostEditor from './components/PostEditor/';
 import './App.css';
+import 'antd/dist/antd.css';
 
 const App = () => (
   <Provider store={store}>

@@ -45,6 +45,5 @@
 .mainButton:hover {
   background: var(--main-color);
   border: 2px solid var(--main-color);
-  text-shadow: var(--small-shadow);
   transform: scale(1.05, 1.05);
 }

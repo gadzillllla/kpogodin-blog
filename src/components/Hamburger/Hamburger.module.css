@@ -1,0 +1,67 @@
+.nav {
+  background-color: rgba(0, 0, 0, 0.301);
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: 0.3s ease-in;
+  width: 100vw;
+}
+
+.menu {
+  animation: slide-from-left 0.3s 1 ease-out;
+  background-color: var(--BACKGROUND);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
+  padding-top: 100px;
+  position: absolute;
+  top: 0;
+  width: 40%;
+  z-index: 2;
+}
+
+.link {
+  align-items: center;
+  color: rgb(0, 0, 0);
+  display: flex;
+  height: 50px;
+  justify-content: flex-start;
+  padding-left: 50px;
+  text-decoration: none;
+  transition: 0.1s ease-in;
+}
+
+.link:hover {
+  background: rgb(221, 221, 221);
+}
+
+.background {
+  background: rgba(0, 0, 0, 0.253);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.button {
+  position: absolute;
+  z-index: 3;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes slide-from-left {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

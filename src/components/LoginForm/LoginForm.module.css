@@ -55,8 +55,6 @@
 
 .mainButton:hover {
   background: var(--main-color);
-  border: 2px solid var(--main-color);
-  text-shadow: var(--small-shadow);
   transform: scale(1.05, 1.05);
 }
 
@@ -123,7 +121,6 @@
   font-size: 18px;
   font-weight: 300;
   margin: 0 30px 0 10px;
-  text-shadow: none;
 }
 
 @media only screen and (max-width: 1024px) {

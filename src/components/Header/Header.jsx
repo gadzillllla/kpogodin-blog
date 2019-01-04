@@ -1,18 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Hamburger from 'components/Hamburger';
 import LoginForm from 'components/LoginForm';
-import Routes from 'lib/routes';
+import { Icon } from 'antd';
+import { isMobile } from 'lib/browser';
 import styles from './Header.module.css';
+
+const renderLogo = () => (isMobile() ? <Icon type="home" style={{ fontSize: '25px', color: 'black' }} /> : <p>desc</p>);
 
 const renderHeader = () => (
   <header className={styles.root}>
     <div className={styles.container}>
-      <h5 className={styles.logo}>
-        <NavLink className={styles.link} to="/">
-          <b>KPOGODIN</b> blog
-        </NavLink>
-      </h5>
+      <div className={styles.logo}>
+        <Hamburger />
+      </div>
       <LoginForm />
     </div>
   </header>

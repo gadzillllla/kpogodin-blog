@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Hamburger from 'components/Hamburger';
 import LoginForm from 'components/LoginForm';
+import CurrentUser from 'components/CurrentUser';
 import { Icon } from 'antd';
 import { isMobile } from 'lib/browser';
 import styles from './Header.module.css';
@@ -12,10 +13,10 @@ const renderLogo = () => (isMobile() ? <Icon type="home" style={{ fontSize: '25p
 const renderHeader = () => (
   <header className={styles.root}>
     <div className={styles.container}>
-      <div className={styles.logo}>
-        <Hamburger />
+      <Hamburger />
+      <div className={styles.right}>
+        <CurrentUser />
       </div>
-      <LoginForm />
     </div>
   </header>
 );

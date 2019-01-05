@@ -23,7 +23,6 @@ class TopTitle extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.path);
     this.setState({
       page: this.props.location.pathname,
     });

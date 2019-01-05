@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
-import { Icon } from 'antd';
+import { Icon, Divider } from 'antd';
 import { connect } from 'react-redux';
-import { appDB, facebookProvider, googleProvider } from 'DBconfig/DB_CONFIG';
-import { userLogin, userLogout, adminMode } from 'actions/userActions';
+import { appDB, facebookLogin, googleLogin } from 'DBconfig/DB_CONFIG';
+import { userLogin, userLogout, adminMode, loginModalClose } from 'actions/userActions';
 import PropTypes from 'prop-types';
+import Button from 'components/shared/Button';
 import Modal from 'react-responsive-modal';
 import styles from './LoginForm.module.css';
 import adminToken from 'DBconfig/DB_ADMIN_TOKEN';
-import Avatar from 'components/shared/Avatar';
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       form: 'login',
-      modal: false,
       error: '',
     };
   }
@@ -26,6 +25,7 @@ class LoginForm extends Component {
   authListener = () => {
     const { userLogin, userLogout, adminMode } = this.props;
     appDB.auth().onAuthStateChanged(user => {
+      console.log(user);
       if (user) {
         const shortEmail = String(user.email).split('@')[0];
         user.displayName
@@ -62,17 +62,7 @@ class LoginForm extends Component {
       });
   };
 
-  facebookLogin = () => {
-    appDB.auth().signInWithPopup(facebookProvider);
-  };
-
-  googleLogin = () => {
-    appDB.auth().signInWithPopup(googleProvider);
-  };
-
   onSubmit = values => appDB.auth().signInWithEmailAndPassword(values.login, values.password);
-
-  logout = () => appDB.auth().signOut();
 
   toSignUp = () =>
     this.setState({
@@ -85,10 +75,6 @@ class LoginForm extends Component {
     });
   };
 
-  onOpenModal = () => {
-    this.setState({ modal: true });
-  };
-
   onCloseModal = () => {
     this.setState({ modal: false });
   };
@@ -99,27 +85,18 @@ class LoginForm extends Component {
       render={({ handleSubmit }) => (
         <form className={styles.root} onSubmit={handleSubmit}>
           <div className={styles.form}>
-            <div className={styles.row}>
-              <Icon className={styles.icon} type="user" theme="outlined" />
-              <Field className={styles.input} name="login" component="input" type="text" placeholder="email" />
-            </div>
-            <div className={styles.row}>
-              <Icon className={styles.icon} type="lock" theme="outlined" />
-              <Field
-                className={styles.input}
-                name="password"
-                component="input"
-                type="password"
-                placeholder="password"
-              />
-            </div>
+            <Field className={styles.input} name="login" component="input" type="text" placeholder="email" />
+            <Field className={styles.input} name="password" component="input" type="password" placeholder="password" />
             <div className={styles.buttons}>
-              <button className={styles.secondButton} type="button" onClick={this.toSignUp}>
-                SIGN UP
-              </button>
-              <button className={styles.mainButton} type="submit">
-                LOGIN
-              </button>
+              <Button label="РЕГИСТРАЦИЯ" ghost onClick={this.toSignUp} />
+              <Button label="ВОЙТИ" type="submit" />
+            </div>
+            <div className={styles.social}>
+              <p>Другие способы входа</p>
+              <div>
+                <Icon className={styles.button} onClick={googleLogin} type="google" theme="outlined" />
+                <Icon className={styles.button} onClick={facebookLogin} type="facebook" theme="outlined" />
+              </div>
             </div>
           </div>
         </form>
@@ -134,7 +111,7 @@ class LoginForm extends Component {
         <form className={styles.root} onSubmit={handleSubmit}>
           <div className={styles.row}>
             <Icon className={styles.icon} type="user" theme="outlined" />
-            <Field className={styles.input} name="login" component="input" type="text" placeholder="login" />
+            <Field className={styles.input} name="login" component="input" type="text" placeholder="email" />
           </div>
           <div className={styles.row}>
             <Icon className={styles.icon} type="lock" theme="outlined" />
@@ -151,12 +128,8 @@ class LoginForm extends Component {
             />
           </div>
           <div className={styles.buttons}>
-            <button className={styles.secondButton} type="button" onClick={this.toLogin}>
-              BACK
-            </button>
-            <button className={styles.mainButton} type="submit">
-              CONFIRM
-            </button>
+            <Button label="< НАЗАД" ghost onClick={this.toLogin} />
+            <Button label="OK" type="submit" />
           </div>
           <p>{this.state.error}</p>
         </form>
@@ -169,8 +142,7 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { username, userPicUrl } = this.props;
-    const { modal } = this.state;
+    const { username, modal, userPicUrl } = this.props;
     if (username) {
       return (
         <div className={styles.userInfo}>
@@ -180,21 +152,16 @@ class LoginForm extends Component {
       );
     }
     return (
-      <div>
-        <Modal
-          open={modal}
-          classNames={{
-            overlay: styles.customOverlay,
-            modal: styles.customModal,
-          }}
-          onClose={this.onCloseModal}
-        >
-          {this.renderContent()}
-        </Modal>
-        <Icon className={styles.button} onClick={this.onOpenModal} type="login" theme="outlined" />
-        <Icon className={styles.button} type="google" onClick={this.googleLogin} theme="outlined" />
-        <Icon type="facebook" onClick={this.facebookLogin} theme="outlined" className={styles.button} />
-      </div>
+      <Modal
+        open={modal}
+        classNames={{
+          overlay: styles.customOverlay,
+          modal: styles.customModal,
+        }}
+        onClose={this.props.loginModalClose}
+      >
+        {this.renderContent()}
+      </Modal>
     );
   }
 }
@@ -202,6 +169,7 @@ class LoginForm extends Component {
 const mapStateToProps = state => ({
   username: state.userReducer.username,
   userPicUrl: state.userReducer.userPicUrl,
+  modal: state.userReducer.loginModalOpen,
 });
 
 LoginForm.propTypes = {
@@ -212,5 +180,5 @@ LoginForm.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { userLogin, userLogout, adminMode },
+  { userLogin, userLogout, adminMode, loginModalClose },
 )(LoginForm);

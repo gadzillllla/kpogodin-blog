@@ -1,5 +1,8 @@
 :root {
   --BACKGROUND: #f3f3f3;
+  --button-primary: #2d789c;
+  --button-danger: #bf2222;
+  --button-disabled: rgb(197, 197, 197);
   --BLUE: #007abb;
   --RED: #d20000;
   --WHITE: white;

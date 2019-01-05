@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
 import cn from 'classnames';
+import { connect } from 'react-redux';
 import styles from './Hamburger.module.css';
 import { NavLink } from 'react-router-dom';
 import Routes from '../../lib/routes';
-import { divide } from 'ramda';
+import Button from 'components/shared/Button';
+import CurrentAvatar from 'components/shared/CurrentAvatar';
+import { userLogout, loginModalOpen } from 'actions/userActions';
+import { logout } from 'DBconfig/DB_CONFIG';
 
 const NAVIGATION_BAR = [
   {
@@ -26,6 +30,31 @@ class Hamburger extends Component {
     this.setState({
       open: !this.state.open,
     });
+
+  userLogout = () => {
+    logout();
+    this.props.userLogout();
+    this.handleClick();
+  };
+
+  renderUserInfo = () => {
+    const { username, logged, userPicUrl, loginModalOpen } = this.props;
+    if (username && logged)
+      return (
+        <div className={styles.userInfo}>
+          <Button label="ВЫЙТИ" ghost onClick={this.userLogout} />
+          <div className={styles.userBlock}>
+            <CurrentAvatar userPicUrl={userPicUrl} />
+            <p>{username}</p>
+          </div>
+        </div>
+      );
+    return (
+      <div className={styles.userInfo}>
+        <Button onClick={loginModalOpen} ghost label="ВОЙТИ" />
+      </div>
+    );
+  };
 
   render() {
     return (
@@ -52,6 +81,7 @@ class Hamburger extends Component {
                 </NavLink>
               );
             })}
+            {this.renderUserInfo()}
           </nav>
           <div onClick={this.handleClick} className={cn(styles.background)} />
         </div>
@@ -60,4 +90,17 @@ class Hamburger extends Component {
   }
 }
 
-export default Hamburger;
+const mapStateToProps = state => ({
+  logged: state.userReducer.logged,
+  username: state.userReducer.username,
+  userPicUrl: state.userReducer.userPicUrl,
+});
+
+// LoginForm.propTypes = {
+//   username: PropTypes.string.isRequired,
+// };
+
+export default connect(
+  mapStateToProps,
+  { userLogout, loginModalOpen },
+)(Hamburger);

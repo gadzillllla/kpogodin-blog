@@ -1,5 +1,5 @@
 .root {
-  margin: 100px auto;
+  margin: 50px auto;
   width: 80%;
 }
 
@@ -12,8 +12,8 @@
 .input {
   background: none;
   border: none;
-  border-bottom: 1px solid #b2b2b2;
-  color: white;
+  border-bottom: 2px solid var(--text-color);
+  color: var(--text-color);
   font-size: 20px;
   height: 30px;
   line-height: 10px;
@@ -21,18 +21,14 @@
   outline: none;
   resize: none;
   text-align: center;
-  width: 300px;
-}
-
-.input:focus {
-  border-bottom: 1px solid white;
+  width: 100%;
 }
 
 .input:-webkit-autofill,
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus,
 .input:-webkit-autofill:active {
-  -webkit-text-fill-color: white;
+  -webkit-text-fill-color: var(--text-color);
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -61,7 +57,7 @@
 .secondButton {
   background: none;
   border: none;
-  color: white;
+  color: var(--text-color);
   line-height: 0;
   padding: 18px;
   transition: 0.1s ease-in-out;
@@ -73,18 +69,18 @@
 }
 
 .button {
-  margin-left: 5px;
-  margin-top: 7px;
+  cursor: pointer;
+  margin: 20px 10px 0 10px;
 }
 
 .button svg {
-  color: #b2b2b2;
-  font-size: 25px;
+  color: var(--button-primary);
+  font-size: 50px;
   transition: 0.1s ease-out;
 }
 
 .button svg:hover {
-  color: white;
+  filter: brightness(110%);
   transform: scale(1.05, 1.05);
 }
 
@@ -93,7 +89,7 @@
 }
 
 .customModal {
-  background: #444;
+  background: var(--BACKGROUND);
   width: 400px;
 }
 
@@ -121,6 +117,25 @@
   font-size: 18px;
   font-weight: 300;
   margin: 0 30px 0 10px;
+}
+
+.or {
+  display: flex;
+}
+
+.social {
+  align-items: center;
+  background: #eee;
+  border: 2px solid #e1e0e0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.social div {
+  margin-top: 10px;
 }
 
 @media only screen and (max-width: 1024px) {

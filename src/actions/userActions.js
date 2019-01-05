@@ -9,3 +9,9 @@ export function userLogout() {
 export function adminMode() {
   return { type: actionTypes.ADMIN_MODE_ON };
 }
+export function loginModalOpen() {
+  return { type: actionTypes.LOGIN_MODAL_OPEN };
+}
+export function loginModalClose() {
+  return { type: actionTypes.LOGIN_MODAL_CLOSE };
+}

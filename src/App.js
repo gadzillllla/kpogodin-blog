@@ -9,6 +9,7 @@ import TopTitle from './components/TopTitle';
 import Routes from './lib/routes';
 import Video from './components/Video';
 import PostEditor from './components/PostEditor/';
+import LoginForm from './components/LoginForm/';
 import './App.css';
 
 const App = () => (
@@ -17,11 +18,12 @@ const App = () => (
       <div className={App}>
         <Header />
         <div className="content">
-          <TopTitle />
+          {/* <TopTitle /> */}
           <Route exact path={Routes.rootPath} component={MainContent} />
           <Route path={Routes.aboutPath} component={About} />
           <Route path={Routes.videoPath} component={Video} />
           <Route path={Routes.postEditor} component={PostEditor} />
+          <LoginForm />
         </div>
       </div>
     </BrowserRouter>

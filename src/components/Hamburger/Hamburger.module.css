@@ -47,6 +47,25 @@
   z-index: 1;
 }
 
+.userInfo {
+  align-items: center;
+  background: #eff9ff;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  padding-left: 50px;
+}
+
+.userInfo p {
+  margin: 0 10px;
+}
+
+.userBlock {
+  align-items: center;
+  display: flex;
+  margin-right: 20px;
+}
+
 .button {
   position: absolute;
   z-index: 3;
@@ -63,5 +82,11 @@
 
   100% {
     transform: translateX(0);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .menu {
+    width: 80%;
   }
 }

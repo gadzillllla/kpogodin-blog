@@ -26,5 +26,12 @@ export const databaseAutosave = appDB
 
 export const storage = firebase.storage();
 
-// const id = '-LFJx46jPOaLVDGaC';
-// export const currentPost = databasePosts.child(id);
+export const logout = () => appDB.auth().signOut();
+
+export const facebookLogin = () => {
+  appDB.auth().signInWithPopup(facebookProvider);
+};
+
+export const googleLogin = () => {
+  appDB.auth().signInWithPopup(googleProvider);
+};

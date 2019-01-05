@@ -6,6 +6,7 @@ import AddCommentForm from 'components/AddCommentForm';
 import LikesCounter from 'components/LikesCounter';
 import Comment from 'components/shared/Comment';
 import TimeAgo from 'components/shared/TimeAgo';
+import Button from 'components/shared/Button';
 import Tag from 'components/shared/Tag';
 import DeleteButton from 'components/shared/DeleteButton';
 import ReactHtmlParser from 'react-html-parser';

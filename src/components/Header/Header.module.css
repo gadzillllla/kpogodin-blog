@@ -34,9 +34,10 @@
   width: 100px;
 }
 
-.logo {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+.right {
+  position: absolute;
+  right: 15px;
+  top: 22px;
 }
 
 @keyframes slide-down {

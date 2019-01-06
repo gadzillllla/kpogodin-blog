@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Icon } from 'antd';
 import { connect } from 'react-redux';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
+import { loginModalOpen } from 'actions/userActions';
 import styles from './LikesCounter.module.css';
 
 class LikesCounter extends Component {
@@ -45,12 +46,11 @@ class LikesCounter extends Component {
       });
   }
 
-  searchIdByAuthor = (arr, userUid) => {
-    return arr.reduce((acc, elem) => {
+  searchIdByAuthor = (arr, userUid) =>
+    arr.reduce((acc, elem) => {
       if (elem.from === userUid) acc = elem.id;
       return acc;
     }, '');
-  };
 
   addLike = () => {
     const { userUid, postId } = this.props;
@@ -76,9 +76,17 @@ class LikesCounter extends Component {
     const { likes } = this.state;
     const { userUid, logged } = this.props;
     const likeChecked = this.searchIdByAuthor(likes, userUid);
-    if (!logged) return <Icon type="heart" theme="filled" style={{ fontSize: '25px', color: 'grey' }} />;
-    if (likeChecked) return <Icon type="heart" theme="filled" style={{ fontSize: '25px', color: '#d8342e' }} />;
-    return <Icon type="heart" theme="outlined" style={{ fontSize: '25px', color: 'white' }} />;
+    if (!logged)
+      return (
+        <Icon
+          type="heart"
+          theme="filled"
+          onClick={this.props.loginModalOpen}
+          style={{ fontSize: '30px', color: '#888888' }}
+        />
+      );
+    if (likeChecked) return <Icon type="heart" theme="filled" style={{ fontSize: '30px', color: '#d8342e' }} />;
+    return <Icon type="heart" theme="outlined" className={styles.heart} />;
   };
 
   render() {
@@ -105,4 +113,7 @@ const mapStateToProps = state => ({
 //   blogLoaded: PropTypes.func.isRequired,
 // };
 
-export default connect(mapStateToProps)(LikesCounter);
+export default connect(
+  mapStateToProps,
+  { loginModalOpen },
+)(LikesCounter);

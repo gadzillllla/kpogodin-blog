@@ -1,8 +1,11 @@
 @import '../styles/vars.css';
 
 .root {
-  border-top: 1px solid rgb(29, 29, 29);
-  margin: 50px;
+  background: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 50px;
+  padding: 50px;
   padding-bottom: 5px;
 }
 
@@ -25,6 +28,11 @@
   margin: 30px 20px 5px 0;
 }
 
+.buttons {
+  align-items: start;
+  display: flex;
+}
+
 .bottom {
   align-items: center;
   display: flex;
@@ -42,6 +50,17 @@ iframe {
   margin-bottom: 20px;
 }
 
+.commentTogle svg {
+  color: #888;
+  font-size: 30px;
+  margin-right: 10px;
+  transition: 0.1s ease-out;
+}
+
+.commentTogle svg:hover {
+  color: var(--text-color);
+}
+
 @keyframes slide-up {
   0% {
     opacity: 0;
@@ -56,7 +75,13 @@ iframe {
 
 @media only screen and (max-width: 1024px) {
   .root {
-    margin: 50px 20px;
+    background: none;
+    border-bottom: 1px solid #888;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 20px;
+    padding: 0;
+    padding-bottom: 5px;
   }
 
   .post img {

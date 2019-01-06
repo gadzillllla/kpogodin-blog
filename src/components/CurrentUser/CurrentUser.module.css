@@ -1,2 +1,11 @@
+.root {
+  align-items: center;
+  display: flex;
+}
+
 .username {
+  color: #999;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-top: -3px;
 }

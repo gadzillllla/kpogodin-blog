@@ -6,10 +6,12 @@ import AddCommentForm from 'components/AddCommentForm';
 import LikesCounter from 'components/LikesCounter';
 import Comment from 'components/shared/Comment';
 import TimeAgo from 'components/shared/TimeAgo';
+import { loginModalOpen } from 'actions/userActions';
 import Button from 'components/shared/Button';
 import Tag from 'components/shared/Tag';
 import DeleteButton from 'components/shared/DeleteButton';
 import ReactHtmlParser from 'react-html-parser';
+import { Icon } from 'antd';
 import { sortObjByKey } from 'lib/utils';
 
 class Post extends Component {
@@ -18,10 +20,11 @@ class Post extends Component {
     this.state = {
       likes: [],
       comments: [],
+      input: false,
     };
   }
   componentWillMount() {
-    const { comments, likes } = this.state;
+    const { comments } = this.state;
     const { postId } = this.props;
     const previousComments = comments;
 
@@ -72,8 +75,23 @@ class Post extends Component {
     );
   };
 
+  inputToggle = () => {
+    const { logged } = this.props;
+    if (logged) {
+      this.setState({
+        input: !this.state.input,
+      });
+    } else this.props.loginModalOpen();
+  };
+
+  renderCommentForm = () => {
+    const { postId } = this.props;
+    const { input } = this.state;
+    return input ? <AddCommentForm id={postId} /> : null;
+  };
+
   render() {
-    const { text, title, postId, time, userPicUrl } = this.props;
+    const { text, title, postId, time } = this.props;
     const { comments, likes } = this.state;
     return (
       <div className={styles.root}>
@@ -86,10 +104,11 @@ class Post extends Component {
           {this.renderTags()}
           {ReactHtmlParser(text)}
         </div>
-        <div className={styles.bottom}>
-          <AddCommentForm id={postId} />
+        <div className={styles.buttons}>
+          <Icon className={styles.commentTogle} type="message" onClick={this.inputToggle} />
           <LikesCounter count={likes.length} postId={postId} likesList={likes} />
         </div>
+        <div className={styles.bottom}>{this.renderCommentForm()}</div>
         {sortObjByKey(comments.slice(), 'time').map(elem => (
           <Comment
             userPicUrl={elem.userPicUrl}
@@ -107,6 +126,7 @@ class Post extends Component {
 }
 
 const mapStateToProps = state => ({
+  logged: state.userReducer.logged,
   userUid: state.blogReducer.userUid,
 });
 
@@ -117,5 +137,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {},
+  { loginModalOpen },
 )(Post);

@@ -6,7 +6,8 @@ import styles from './Hamburger.module.css';
 import { NavLink } from 'react-router-dom';
 import Routes from '../../lib/routes';
 import Button from 'components/shared/Button';
-import CurrentAvatar from 'components/shared/CurrentAvatar';
+import Avatar from 'components/shared/Avatar';
+import CurrentUser from 'components/CurrentUser';
 import { userLogout, loginModalOpen } from 'actions/userActions';
 import { logout } from 'DBconfig/DB_CONFIG';
 
@@ -43,10 +44,11 @@ class Hamburger extends Component {
       return (
         <div className={styles.userInfo}>
           <Button label="ВЫЙТИ" ghost onClick={this.userLogout} />
-          <div className={styles.userBlock}>
-            <CurrentAvatar userPicUrl={userPicUrl} />
+          {/* <div className={styles.userBlock}>
+            <Avatar userPicUrl={userPicUrl} size={25} />
             <p>{username}</p>
-          </div>
+          </div> */}
+          <CurrentUser />
         </div>
       );
     return (

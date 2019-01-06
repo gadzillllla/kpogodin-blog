@@ -36,8 +36,8 @@
 
 .right {
   position: absolute;
-  right: 15px;
-  top: 22px;
+  right: 20px;
+  top: 26px;
 }
 
 @keyframes slide-down {

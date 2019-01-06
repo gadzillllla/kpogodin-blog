@@ -49,10 +49,10 @@
 
 .userInfo {
   align-items: center;
-  background: #eff9ff;
+  background: #2d789b0f;
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
+  padding: 10px;
   padding-left: 50px;
 }
 

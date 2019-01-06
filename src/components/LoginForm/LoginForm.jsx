@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
-import { Icon, Divider } from 'antd';
+import { Icon } from 'antd';
 import { connect } from 'react-redux';
 import { appDB, facebookLogin, googleLogin } from 'DBconfig/DB_CONFIG';
 import { userLogin, userLogout, adminMode, loginModalClose } from 'actions/userActions';
@@ -25,7 +25,6 @@ class LoginForm extends Component {
   authListener = () => {
     const { userLogin, userLogout, adminMode } = this.props;
     appDB.auth().onAuthStateChanged(user => {
-      console.log(user);
       if (user) {
         const shortEmail = String(user.email).split('@')[0];
         user.displayName
@@ -62,7 +61,11 @@ class LoginForm extends Component {
       });
   };
 
-  onSubmit = values => appDB.auth().signInWithEmailAndPassword(values.login, values.password);
+  onSubmit = values =>
+    appDB
+      .auth()
+      .signInWithEmailAndPassword(values.login, values.password)
+      .then(this.props.loginModalClose());
 
   toSignUp = () =>
     this.setState({
@@ -73,10 +76,6 @@ class LoginForm extends Component {
     this.setState({
       form: 'login',
     });
-  };
-
-  onCloseModal = () => {
-    this.setState({ modal: false });
   };
 
   renderLoginForm = () => (
@@ -142,18 +141,10 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { username, modal, userPicUrl } = this.props;
-    if (username) {
-      return (
-        <div className={styles.userInfo}>
-          <span className={styles.username}> {username} </span>
-          <Icon className={styles.button} onClick={this.logout} type="logout" theme="outlined" />
-        </div>
-      );
-    }
+    const { modal, logged } = this.props;
     return (
       <Modal
-        open={modal}
+        open={modal && !logged}
         classNames={{
           overlay: styles.customOverlay,
           modal: styles.customModal,
@@ -169,6 +160,7 @@ class LoginForm extends Component {
 const mapStateToProps = state => ({
   username: state.userReducer.username,
   userPicUrl: state.userReducer.userPicUrl,
+  logged: state.userReducer.logged,
   modal: state.userReducer.loginModalOpen,
 });
 

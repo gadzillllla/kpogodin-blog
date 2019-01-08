@@ -6,6 +6,7 @@
   border-radius: 10px;
   box-shadow: var(--small-shadow);
   color: white;
+  font-size: 18px;
   margin: 0 5px 5px 0;
   outline: none;
   padding: 5px;
@@ -15,4 +16,11 @@
 
 .tag:hover {
   background-color: #0fc0ab;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tag {
+    font-size: 14px;
+    margin: 0 5px 0 0;
+  }
 }

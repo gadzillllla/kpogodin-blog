@@ -97,13 +97,15 @@ class Post extends Component {
       <div className={styles.root}>
         <div className={styles.post}>
           <div className={styles.top}>
-            <h3 className={styles.title}>{title} </h3>
-            <TimeAgo time={time} />
-            <DeleteButton deleteItem={this.handleRemovePost} />
+            <h1 className={styles.title}>{title} </h1>
+            <div className={styles.subtitle}>
+              <TimeAgo time={time} />
+              <DeleteButton deleteItem={this.handleRemovePost} />
+            </div>
           </div>
-          {this.renderTags()}
           {ReactHtmlParser(text)}
         </div>
+        {this.renderTags()}
         <div className={styles.buttons}>
           <Icon className={styles.commentTogle} type="message" onClick={this.inputToggle} />
           <LikesCounter count={likes.length} postId={postId} likesList={likes} />

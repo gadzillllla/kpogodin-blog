@@ -10,7 +10,6 @@
 .comment {
   display: flex;
   flex-direction: column;
-  margin: 4px 0;
   margin-left: 5px;
   min-height: 60px;
   padding: 0 15px 10px 10px;
@@ -28,10 +27,8 @@
 }
 
 .author {
-  color: #909090;
   font-size: 14px;
-  font-weight: 100;
-  line-height: 5px;
+  font-weight: bold;
 }
 
 .header {
@@ -39,7 +36,7 @@
 }
 
 .txt {
-  color: white;
+  color: var(--text-color);
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -54,6 +51,7 @@
 .bottom {
   align-items: baseline;
   display: flex;
+  margin-top: 10px;
 }
 
 @keyframes slide-up {

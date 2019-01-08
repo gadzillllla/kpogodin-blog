@@ -1065,6 +1065,7 @@
 }
 
 .ql-toolbar.ql-snow {
+  background-color: var(--button-primary);
   border-bottom: 1px solid #ccc;
   box-sizing: border-box;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

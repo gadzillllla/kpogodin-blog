@@ -7,7 +7,7 @@ const Tag = props => {
   const selectTag = () => props.changeTag(props.tag);
   return (
     <button onClick={selectTag} className={styles.tag}>
-      #{props.tag}
+      {props.tag}
     </button>
   );
 };

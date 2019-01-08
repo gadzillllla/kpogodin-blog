@@ -7,7 +7,7 @@ import { editorOn, editorOff } from 'actions/blogActions';
 import { Form, Field } from 'react-final-form';
 import { databasePosts, databaseAutosave } from 'DBconfig/DB_CONFIG';
 import styles from './PostEditor.module.css';
-import './test.css';
+import './editorStyles.css';
 
 class PostEditor extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class PostEditor extends Component {
 
   modules = {
     toolbar: [
-      [{ header: [1, 2, false] }],
+      [{ header: [2, 3, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code'],
       ['link', 'image', 'video'],
     ],

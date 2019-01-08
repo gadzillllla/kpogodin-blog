@@ -1,5 +1,6 @@
 :root {
   --BACKGROUND: #f3f3f3;
+  --post-background: #f7f7f7;
   --button-primary: #2d789c;
   --button-danger: #bf2222;
   --button-disabled: rgb(197, 197, 197);
@@ -23,7 +24,6 @@
   --logo-text: black;
   --logo-background: var(--RED);
   --svg-color: var(--RED);
-  --post-background: #3a3a39;
   --post-background-hover: #333332;
   --light-text: #fff;
   --shadow: 1px 1px 3px #000;

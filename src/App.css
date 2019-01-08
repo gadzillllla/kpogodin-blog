@@ -10,32 +10,36 @@ body {
   padding: 0;
 }
 
-/* main title on page */
+/* title of post */
 h1 {
   font-family: sans-serif;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 900;
   word-wrap: break-word;
 }
 
+/* title inside post */
 h2 {
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
   word-wrap: break-word;
 }
 
-/* title of post */
+/* second title inside post */
 h3 {
   font-family: sans-serif;
-  font-size: 30px;
+  font-size: 16px;
   font-weight: 900;
   word-wrap: break-wor;
 }
 
-/* title of comment (name) */
+/* comment author */
 h5 {
-  margin-top: 0;
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
 }
 
 p,
@@ -43,10 +47,6 @@ li {
   font-size: 16px;
   margin: 0 0 15px 0;
   word-wrap: break-word;
-}
-
-button {
-  font-size: 18px;
 }
 
 .App {
@@ -61,4 +61,15 @@ button {
   margin: 0 auto;
   max-width: 1280px;
   width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  p,
+  li {
+    font-size: 14px;
+  }
 }

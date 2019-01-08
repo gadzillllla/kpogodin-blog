@@ -58,6 +58,13 @@ class Hamburger extends Component {
     );
   };
 
+  renderEditorLink = () =>
+    this.props.admin && (
+      <NavLink to={Routes.postEditor} onClick={this.handleClick} className={styles.link}>
+        <div>ADD POST</div>
+      </NavLink>
+    );
+
   render() {
     return (
       <div className={styles.root}>
@@ -84,6 +91,7 @@ class Hamburger extends Component {
               );
             })}
             {this.renderUserInfo()}
+            {this.renderEditorLink()}
           </nav>
           <div onClick={this.handleClick} className={cn(styles.background)} />
         </div>
@@ -96,6 +104,7 @@ const mapStateToProps = state => ({
   logged: state.userReducer.logged,
   username: state.userReducer.username,
   userPicUrl: state.userReducer.userPicUrl,
+  admin: state.userReducer.admin,
 });
 
 // LoginForm.propTypes = {

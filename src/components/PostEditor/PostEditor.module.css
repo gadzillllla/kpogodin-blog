@@ -1,8 +1,9 @@
 .root {
-  background-color: #444;
+  background-color: var(--post-background);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  margin-top: 70px;
   padding: 20px;
   width: 91vmin;
 }
@@ -16,8 +17,8 @@
 .title {
   background: none;
   border: none;
-  border-bottom: 1px solid white;
-  color: white;
+  border-bottom: 1px solid var(--button-primary);
+  color: var(--text-color);
   height: 25px;
   margin-bottom: 10px;
 }

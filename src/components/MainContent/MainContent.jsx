@@ -51,12 +51,12 @@ class MainContent extends Component {
     });
   }
 
-  renderEditorLink = () =>
-    this.props.admin && (
-      <Link to={Routes.postEditor} className={styles.addContainer}>
-        <Icon className={styles.addIcon} type="plus-circle" />
-      </Link>
-    );
+  // renderEditorLink = () =>
+  //   this.props.admin && (
+  //     <Link to={Routes.postEditor} className={styles.addContainer}>
+  //       <Icon className={styles.addIcon} type="plus-circle" />
+  //     </Link>
+  //   );
 
   render() {
     const { posts } = this.state;
@@ -67,7 +67,6 @@ class MainContent extends Component {
     return (
       <div className={styles.root}>
         <div className={styles.content}>
-          {this.renderEditorLink()}
           {filterPostByTags(sortObjByKey(posts.slice(), 'time'), selectedTag).map(elem => (
             <Post
               title={elem.title}

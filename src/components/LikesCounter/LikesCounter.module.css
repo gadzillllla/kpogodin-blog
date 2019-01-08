@@ -4,7 +4,7 @@
   align-items: center;
   color: #888;
   display: flex;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .root p {
@@ -14,16 +14,34 @@
 .container {
   background: none;
   border: none;
-  height: 28px;
   margin-right: 0;
   outline: none;
   transition: 0.1s ease-in;
   width: 45px;
 }
 
-/* .container:hover {
-  transform: scale(1.1, 1.1);
-} */
+.counter {
+  margin-left: 5px;
+}
+
+.usersList {
+  display: flex;
+  flex-direction: column;
+}
+
+.userLink {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.customOverlay {
+  background: rgba(0, 0, 0, 0.678);
+}
+
+.customModal {
+  background: var(--BACKGROUND);
+  width: 400px;
+}
 
 .heart svg {
   color: #888;

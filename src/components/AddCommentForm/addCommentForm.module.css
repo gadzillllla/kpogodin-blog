@@ -1,15 +1,12 @@
-.root {
-  align-items: flex-start;
+.form {
+  align-items: flex-end;
   display: flex;
-  height: 50px;
-  justify-content: flex-start;
-  padding: 0;
-  width: 85%;
+  flex-direction: column;
+  width: 100%;
 }
 
-.form {
-  display: flex;
-  width: 100%;
+.form button {
+  width: 100px;
 }
 
 .input {
@@ -17,47 +14,13 @@
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   font-size: 16px;
-  height: 50px;
-  line-height: 50px;
-  margin-left: 15px;
-  outline: none;
-  padding: 0 0 0 20px;
-  resize: none;
-  width: 75%;
-}
-
-.btn {
-  border: none;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  color: white;
-  font-size: 16px;
-  height: 50px;
-  min-width: 60px;
+  height: 100px;
+  line-height: 16px;
+  margin-bottom: 10px;
   outline: none;
   resize: none;
-  transition: 0.1s ease-in;
-  width: 15%;
-}
-
-.btn:hover {
-  filter: brightness(1.2);
-  transform: scale(1.05, 1.05);
-}
-
-.tip {
-  color: grey;
-}
-
-.ava {
+  width: 100%;
 }
 
 @media only screen and (max-width: 1024px) {
-  .ava {
-    display: none;
-  }
-
-  .input {
-    margin-left: 0;
-  }
 }

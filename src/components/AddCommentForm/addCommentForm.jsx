@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
-import { Icon, Button } from 'antd';
+import { Icon } from 'antd';
+import Button from 'components/shared/Button';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
 import Avatar from 'components/shared/CurrentAvatar';
 import styles from './addCommentForm.module.css';
@@ -39,47 +40,27 @@ class AddCommentForm extends Component {
     return errors;
   };
 
-  renderForm = () => {
-    const { userPicUrl } = this.props;
-    return (
-      <Fragment>
-        <div className={styles.ava}>
-          <Avatar userPicUrl={userPicUrl} size="50px" />
-        </div>
-        <Form
-          onSubmit={this.addComment}
-          validate={this.validate}
-          render={({ handleSubmit, invalid }) => (
-            <form className={styles.form} onSubmit={handleSubmit}>
-              <Field
-                className={styles.input}
-                name="txt"
-                component="textarea"
-                type="text"
-                placeholder="Add a Comment..."
-              />
-              <button className={styles.btn} type="submit" disabled={invalid}>
-                ADD
-              </button>
-            </form>
-          )}
-        />
-        <Button type="primary">Primary</Button>
-      </Fragment>
-    );
-  };
-
-  renderContent = () =>
-    this.props.logged ? (
-      this.renderForm()
-    ) : (
-      <p className={styles.tip}>
-        <Icon type="exclamation-circle" theme="outlined" /> Чтобы оставлять комментарии и лайки, нужно авторизоваться
-      </p>
-    );
+  renderForm = () => (
+    <Form
+      onSubmit={this.addComment}
+      validate={this.validate}
+      render={({ handleSubmit, invalid }) => (
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <Field
+            className={styles.input}
+            name="txt"
+            component="textarea"
+            type="text"
+            placeholder="Напишите комментарий"
+          />
+          <Button label="Отправить" type="submit" disabled={invalid} />
+        </form>
+      )}
+    />
+  );
 
   render() {
-    return <div className={styles.root}>{this.renderContent()}</div>;
+    return this.renderForm();
   }
 }
 

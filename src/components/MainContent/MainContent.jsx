@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Icon } from 'antd';
-import { Link } from 'react-router-dom';
 import { databasePosts } from 'DBconfig/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
-import Routes from 'lib/routes';
+import TopTitle from 'components/TopTitle';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
 import { sortObjByKey, filterPostByTags, stringToTags } from 'lib/utils';
 import { withRouter } from 'react-router';
@@ -51,21 +49,15 @@ class MainContent extends Component {
     });
   }
 
-  // renderEditorLink = () =>
-  //   this.props.admin && (
-  //     <Link to={Routes.postEditor} className={styles.addContainer}>
-  //       <Icon className={styles.addIcon} type="plus-circle" />
-  //     </Link>
-  //   );
-
   render() {
     const { posts } = this.state;
-    const { loaded, match, location, history, selectedTag } = this.props;
+    const { loaded, selectedTag } = this.props;
     if (!loaded) {
       return <Loader />;
     }
     return (
       <div className={styles.root}>
+        <TopTitle title="KPOGODIN BLOG" />
         <div className={styles.content}>
           {filterPostByTags(sortObjByKey(posts.slice(), 'time'), selectedTag).map(elem => (
             <Post

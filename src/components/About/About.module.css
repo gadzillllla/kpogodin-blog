@@ -52,6 +52,7 @@
 }
 
 .links a {
+  margin: 5px;
   transition: 0.1s ease-in;
 }
 

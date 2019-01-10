@@ -1,22 +1,21 @@
 .cssload-container {
-  height: 50px;
-  margin-right: 20px;
+  height: 34px;
   text-align: center;
 }
 
 .cssload-speeding-wheel {
-  -o-animation: cssload-spin 575ms infinite linear;
-  animation: cssload-spin 575ms infinite linear;
-  -ms-animation: cssload-spin 575ms infinite linear;
-  -webkit-animation: cssload-spin 575ms infinite linear;
-  -moz-animation: cssload-spin 575ms infinite linear;
-  border: 5px solid rgb(255, 255, 255);
+  -o-animation: cssload-spin 1s infinite linear;
+  animation: cssload-spin 1s infinite linear;
+  -ms-animation: cssload-spin 1s infinite linear;
+  -webkit-animation: cssload-spin 1s infinite linear;
+  -moz-animation: cssload-spin 1s infinite linear;
+  border: 3px solid var(--text-color);
   border-left-color: transparent;
   border-radius: 50%;
   border-right-color: transparent;
-  height: 40px;
+  height: 30px;
   margin: 0 auto;
-  width: 40px;
+  width: 30px;
 }
 
 @keyframes cssload-spin {

@@ -7,10 +7,10 @@ import { divide } from 'ramda';
 const Loader = () => (
   <div className={styles.root}>
     <div className={styles.container}>
+      <h1>KPOGODIN</h1>
       <div class="cssload-container">
         <div class="cssload-speeding-wheel" />
       </div>
-      <h1>KPOGODIN</h1>
     </div>
   </div>
 );

@@ -4,6 +4,8 @@ import Checkbox from 'components/ToDoCheckbox';
 import TopTitle from 'components/TopTitle';
 import { Icon } from 'antd';
 
+//  МНЕ ОЧЕНЬ ЛЕНЬ ДЕЛАТЬ ЭТОТ КОМПОНЕТ ПОКА, СОРЯН
+
 const Telegram = () => (
   <svg width="25" height="25" viewBox="0 0 512 420">
     <path
@@ -37,9 +39,9 @@ const About = () => (
         </div>
       </header>
       <p>
-        Всем Привет! Меня зовут Костя и я forontend-разработчик. Делаю сайтики на ReactJS с мая 2018 года. Это мой
-        личный блог, но я его больше програмирую и добавляю фичи, чем наполняю контентом. Блогер из меня так себе, но я
-        постараюсь. Или нет.
+        Всем Привет! Меня зовут Костя. Я делаю сайтики на ReactJS с мая 2018 года в компании Рестрим. Этот блог - мой
+        сторонний проект, который я периодически поделываю в свободное время. т.е. этот блог не ради контента, а ради
+        того что бы его программировать и добавлять функционал. Но контент я постараюсь завозить. Или нет! А может и да
       </p>
     </div>
     <div className={styles.block}>
@@ -64,9 +66,13 @@ const About = () => (
       <Checkbox disabled label={'Лайки к комментариям и сортировка их по популярности'} />
       <Checkbox disabled label={'Сортировка постов по популярности'} />
       <Checkbox disabled label={'смена темы: ночная/дневная'} />
+      <Checkbox disabled label={'уменьшение времени загрузки'} />
+      <Checkbox disabled label={'отображение постов и комментов частями, если их много'} />
+      <Checkbox disabled label={'редактирование поста'} />
+      <Checkbox disabled label={'загрузка изображений в сторэдж'} />
       <Checkbox disabled label={'просмотр изображений по клику'} />
       <Checkbox disabled label={'интерактивная страница about для админа, это вот все щас захардкожено =('} />
-      <Checkbox disabled label={'новый, блять, дизайн ВСЕГО =)'} />
+      <Checkbox disabled label={'да дохера всего на самом деле))'} />
     </div>
     <footer className={styles.footer}>
       <p>

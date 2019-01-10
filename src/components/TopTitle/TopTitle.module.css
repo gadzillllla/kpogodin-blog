@@ -2,6 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
   margin-top: 70px;
   position: relative;
 }
@@ -54,6 +55,7 @@
   }
 
   .root {
+    margin-bottom: 30px;
     margin-top: 100px;
   }
 }

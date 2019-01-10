@@ -34,7 +34,7 @@ class AddCommentForm extends Component {
 
   validate = values => {
     const errors = {};
-    if (!values.txt || values.txt.length < 3) {
+    if (!values.txt || values.txt.length <= 3) {
       errors.txt = 'Нужно больше символов';
     }
     return errors;

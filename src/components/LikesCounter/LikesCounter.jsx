@@ -2,72 +2,9 @@ import React, { Component } from 'react';
 import Modal from 'react-responsive-modal';
 import { Icon } from 'antd';
 import { connect } from 'react-redux';
-import { databasePosts, appDB } from 'DBconfig/DB_CONFIG';
+import { databasePosts } from 'DBconfig/DB_CONFIG';
 import { loginModalOpen } from 'actions/userActions';
 import styles from './LikesCounter.module.css';
-
-const LIKES = [
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin902323',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin902323',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin90323',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin9012',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin901',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin90123',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin902323',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin902323',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin90323',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin9012',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin901',
-  },
-  {
-    from: 'KtNcDiDbIwNsCvfbNni0DFjYTA03',
-    id: '-LVj-sPx1teqA_3WxGgW',
-    name: 'kpogodin90123',
-  },
-];
 
 class LikesCounter extends Component {
   constructor(props) {
@@ -86,7 +23,6 @@ class LikesCounter extends Component {
       .child(`${postId}`)
       .child('likes')
       .on('child_added', snap => {
-        console.log(snap);
         previousLikes.push({
           from: snap.val().from,
           name: snap.val().name,
@@ -138,7 +74,6 @@ class LikesCounter extends Component {
         .child('likes')
         .child(this.searchIdByAuthor(likes, userUid))
         .remove();
-    console.log(this.state.likes);
   };
 
   renderOtherUsersLink = arr =>
@@ -150,7 +85,7 @@ class LikesCounter extends Component {
     );
 
   renderUsers = arr => {
-    if (arr.length === 0) return null;
+    if (arr.length === 0) return <span className={styles.counter} />;
     if (arr.length === 1) return <span className={styles.counter}>Нравится {arr[0].name}</span>;
     if (arr.length >= 2)
       return (
@@ -179,10 +114,10 @@ class LikesCounter extends Component {
           type="heart"
           theme="filled"
           onClick={this.props.loginModalOpen}
-          style={{ fontSize: '30px', color: '#888888' }}
+          style={{ fontSize: '26px', color: '#888888' }}
         />
       );
-    if (likeChecked) return <Icon type="heart" theme="filled" style={{ fontSize: '30px', color: '#d8342e' }} />;
+    if (likeChecked) return <Icon type="heart" theme="filled" style={{ fontSize: '26px', color: '#d8342e' }} />;
     return <Icon type="heart" theme="outlined" className={styles.heart} />;
   };
 

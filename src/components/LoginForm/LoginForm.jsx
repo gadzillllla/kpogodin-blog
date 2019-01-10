@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import Button from 'components/shared/Button';
 import Modal from 'react-responsive-modal';
 import styles from './LoginForm.module.css';
-import adminToken from 'DBconfig/DB_ADMIN_TOKEN';
+import { adminToken } from 'DBconfig/DB_KEY';
 
 class LoginForm extends Component {
   constructor(props) {

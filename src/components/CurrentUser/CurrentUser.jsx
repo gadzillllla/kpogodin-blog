@@ -6,7 +6,6 @@ import { loginModalOpen } from 'actions/userActions';
 import styles from './CurrentUser.module.css';
 
 const CurrentUser = ({ username, loginModalOpen, userPicUrl }) => {
-  console.log(userPicUrl);
   return username ? (
     <div className={styles.root}>
       <span className={styles.username}> {username} </span>

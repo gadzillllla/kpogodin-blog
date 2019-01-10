@@ -38,7 +38,7 @@
   align-items: center;
   display: flex;
   justify-content: flex-start;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 iframe {
@@ -48,7 +48,7 @@ iframe {
 }
 
 .tags {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
@@ -60,8 +60,8 @@ iframe {
 
 .commentTogle svg {
   color: #888;
-  font-size: 30px;
-  margin-right: 10px;
+  font-size: 26px;
+  margin-right: 2px;
   transition: 0.1s ease-out;
 }
 
@@ -89,7 +89,7 @@ iframe {
     box-shadow: none;
     margin: 20px;
     padding: 0;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
   }
 
   .post img {
@@ -100,5 +100,9 @@ iframe {
   iframe {
     height: 210px;
     width: 100%;
+  }
+
+  .title {
+    margin-top: 15px;
   }
 }

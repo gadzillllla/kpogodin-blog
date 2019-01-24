@@ -1,0 +1,23 @@
+.root {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid grey;
+  height: 100px;
+  margin: 5px;
+  position: relative;
+  width: 100px;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  bottom: -18px;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+}

@@ -8,6 +8,7 @@ import About from './components/About';
 import Routes from './lib/routes';
 import PostEditor from './components/PostEditor/';
 import LoginForm from './components/LoginForm/';
+import 'antd/lib/style/index.css';
 import './App.css';
 
 const App = () => (

@@ -1,4 +1,5 @@
 @import './components/shared/styles/vars.css';
+@import '~antd/dist/antd.css';
 
 body {
   background-attachment: fixed;

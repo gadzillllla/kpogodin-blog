@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import Uploader from 'components/Uploader';
 import { editorOn, editorOff } from 'actions/blogActions';
 import { Form, Field } from 'react-final-form';
 import { databasePosts, databaseAutosave } from 'DBconfig/DB_CONFIG';
@@ -117,6 +118,7 @@ class PostEditor extends Component {
         <button className={styles.mainButton} onClick={this.save}>
           SAVE DRAFT
         </button>
+        <Uploader />
       </div>
     );
   }
@@ -130,4 +132,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { editorOn, editorOff },
-)(withRouter(PostEditor));
+)(PostEditor);

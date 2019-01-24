@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { databasePosts } from 'DBconfig/DB_CONFIG';
+import { databasePosts, storage } from 'DBconfig/DB_CONFIG';
 import Post from 'components/shared/Post';
 import Loader from 'components/shared/Loader';
 import PropTypes from 'prop-types';
+import UploadFile from 'components/UploadFile';
 import TopTitle from 'components/TopTitle';
 import { blogLoaded, blogLoading } from 'actions/blogActions';
 import { sortObjByKey, filterPostByTags, stringToTags } from 'lib/utils';
@@ -13,6 +14,9 @@ import styles from './MainContent.module.css';
 class MainContent extends Component {
   state = {
     posts: [],
+    image: null,
+    url: '',
+    progress: 0,
   };
 
   componentDidMount() {
@@ -58,6 +62,10 @@ class MainContent extends Component {
     return (
       <div className={styles.root}>
         <TopTitle title="KPOGODIN BLOG" />
+        <UploadFile
+          percent={69}
+          url="https://firebasestorage.googleapis.com/v0/b/kpogodin-blog73.appspot.com/o/images%2F1545392906856-%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202018-12-13%20%D0%B2%2015.20.04.png?alt=media&amp;token=fc7c255b-bc16-4f21-942a-358bbf427e66"
+        />
         <div className={styles.content}>
           {filterPostByTags(sortObjByKey(posts.slice(), 'time'), selectedTag).map(elem => (
             <Post
@@ -91,3 +99,7 @@ export default connect(
   mapStateToProps,
   { blogLoaded, blogLoading },
 )(withRouter(MainContent));
+
+{
+  /* <img class="UploadFile_img__3F2el" src="https://firebasestorage.googleapis.com/v0/b/kpogodin-blog73.appspot.com/o/images%2F1545392906856-%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202018-12-13%20%D0%B2%2015.20.04.png?alt=media&amp;token=fc7c255b-bc16-4f21-942a-358bbf427e66"></img> */
+}

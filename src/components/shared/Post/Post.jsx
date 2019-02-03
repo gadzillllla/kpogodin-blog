@@ -61,6 +61,12 @@ class Post extends Component {
       });
   }
 
+  renderImages = list =>
+    list &&
+    list.map(elem => {
+      return <img src={elem.url} style={{ width: '300px', height: '300px' }} />;
+    });
+
   handleRemovePost = () => {
     databasePosts.child(this.props.postId).remove();
   };
@@ -91,7 +97,7 @@ class Post extends Component {
   };
 
   render() {
-    const { text, title, postId, time } = this.props;
+    const { text, title, postId, time, imagesList } = this.props;
     const { comments, likes } = this.state;
     return (
       <div className={styles.root}>
@@ -104,6 +110,7 @@ class Post extends Component {
             </div>
           </div>
           {ReactHtmlParser(text)}
+          {this.renderImages(imagesList)}
         </div>
         {this.renderTags()}
         <div className={styles.buttons}>

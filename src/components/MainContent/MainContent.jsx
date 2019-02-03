@@ -29,6 +29,7 @@ class MainContent extends Component {
         id: snap.key,
         txt: snap.val().txt,
         title: snap.val().title,
+        imagesList: snap.val().images,
         time: snap.val().time,
         tags: snap.val().tags,
       });
@@ -56,6 +57,7 @@ class MainContent extends Component {
   render() {
     const { posts } = this.state;
     const { loaded, selectedTag } = this.props;
+    console.log(posts);
     if (!loaded) {
       return <Loader />;
     }
@@ -73,6 +75,7 @@ class MainContent extends Component {
               text={elem.txt}
               key={elem.id}
               postId={elem.id}
+              imagesList={elem.imagesList}
               time={elem.time}
               tags={stringToTags(elem.tags)}
               comments={elem.comments}

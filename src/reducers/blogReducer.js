@@ -5,11 +5,13 @@ const initialState = {
   loaded: false,
   editorAvailable: false,
   tag: '',
+  imagesList: [],
 };
 
 const loadedLens = lensProp('loaded');
 const editorAvailableLens = lensProp('editorAvailable');
 const tagLens = lensProp('tag');
+const imagesListLens = lensProp('imagesList');
 
 export default function blogReducer(state = initialState, action = null) {
   const { type, payload } = action;
@@ -29,6 +31,9 @@ export default function blogReducer(state = initialState, action = null) {
     }
     case actionTypes.CHANGE_TAG: {
       return set(tagLens, payload)(state);
+    }
+    case actionTypes.UPLOAD_IMG: {
+      return set(imagesListLens, payload)(state);
     }
     default: {
       return state;

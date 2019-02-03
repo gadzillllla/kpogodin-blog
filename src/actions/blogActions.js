@@ -18,3 +18,7 @@ export function editorOff() {
 export function changeTag(payload) {
   return { type: actionTypes.CHANGE_TAG, payload };
 }
+
+export function uploadImg(payload) {
+  return { type: actionTypes.UPLOAD_IMG, payload };
+}

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import Uploader from 'components/Uploader';
 import { editorOn, editorOff } from 'actions/blogActions';
 import { Form, Field } from 'react-final-form';
@@ -13,8 +12,7 @@ import './editorStyles.css';
 class PostEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: '' };
-    this.handleChange = this.handleChange.bind(this);
+    this.state = { text: '', files: [] };
   }
 
   componentDidMount() {
@@ -36,10 +34,11 @@ class PostEditor extends Component {
   };
 
   addPost = value => {
-    const { history } = this.props;
+    const { history, imagesList } = this.props;
     let date = new Date().getTime();
     databasePosts.push().set({
       title: value.title || '',
+      images: imagesList,
       tags: value.tags || '',
       txt: this.state.text || '',
       time: date,
@@ -71,9 +70,9 @@ class PostEditor extends Component {
     'video',
   ];
 
-  handleChange(value) {
+  handleChange = value => {
     this.setState({ text: value });
-  }
+  };
 
   validate = values => {
     const errors = {};
@@ -127,6 +126,7 @@ class PostEditor extends Component {
 const mapStateToProps = state => ({
   editorAvailable: state.blogReducer.editorAvailable,
   admin: state.userReducer.admin,
+  imagesList: state.blogReducer.imagesList,
 });
 
 export default connect(

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { isEmpty } from 'ramda';
 import UploadFile from 'components/UploadFile';
+import { uploadImg } from 'actions/blogActions';
 import { storage } from 'DBconfig/DB_CONFIG';
 import styles from './Uploader.module.css';
 
@@ -10,6 +12,10 @@ class Uploader extends Component {
   };
 
   files = e => this.setState({ files: [...e.target.files] });
+
+  componentDidUpdate() {
+    this.props.uploadImg(this.state.files);
+  }
 
   handleUpload = () => {
     const { files } = this.state;
@@ -67,4 +73,12 @@ class Uploader extends Component {
   }
 }
 
-export default Uploader;
+// const mapStateToProps = state => ({
+//   editorAvailable: state.blogReducer.editorAvailable,
+//   admin: state.userReducer.admin,
+// });
+
+export default connect(
+  () => ({}),
+  { uploadImg },
+)(Uploader);
